@@ -1,0 +1,10 @@
+syntax: glob
+*~
+*.swp
+*.orig
+
+syntax: regexp
+/target/
+\.project
+\.settings
+\.classpath
