@@ -391,6 +391,12 @@ public final class WarmUp1Test {
 		assertEquals("Coe", warmUp.everyNth("Chocolates", 4));
 		assertEquals("C", warmUp.everyNth("Chocolates", 100));
 	}
+	
+	@Test
+	public void testCollatzCycleLength() {
+		assertEquals(15, warmUp.collatzCycleLength(22));
+		assertEquals(66, warmUp.collatzCycleLength(113382));
+	}
 
 	@Before
 	public void setUp() {
