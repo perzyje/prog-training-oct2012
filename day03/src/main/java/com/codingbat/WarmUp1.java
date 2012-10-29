@@ -326,8 +326,16 @@ public final class WarmUp1 {
 	 * hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
-		return (a >= 13 && a <= 19) || (b >= 13 && b <= 19)
-				|| (c >= 13 && c <= 19);
+		if (a >= 13 && a <= 19) {
+			return true;
+		}
+		if (b >= 13 && b <= 19) {
+			return true;
+		}
+		if (c >= 13 && c <= 19) {
+			return true;
+		}
+		return false;
 	}
 
 	/*
@@ -463,8 +471,19 @@ public final class WarmUp1 {
 	 * in3050(40, 50) → true
 	 */
 	public boolean in3050(int a, int b) {
-		return (a >= 30 && a <= 40 && b >= 30 && b <= 40)
-				|| (a >= 40 && a <= 50 && b >= 40 && b <= 50);
+		if (a >= 30 && a <= 40) {
+			if (b >= 30 && b <= 40) {
+				return true;
+			}
+		}
+
+		if (a >= 40 && a <= 50) {
+			if (b >= 40 && b <= 50) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/*
@@ -564,8 +583,7 @@ public final class WarmUp1 {
 
 	/*
 	 * http://blog.racket-lang.org/2012/10/the-3n1-problem_4990.html
-	 * http://xkcd.com/710/
-	 * http://en.wikipedia.org/wiki/Collatz_conjecture
+	 * http://xkcd.com/710/ http://en.wikipedia.org/wiki/Collatz_conjecture
 	 * 
 	 * Consider a positive number n. The cycle length of n is the number of
 	 * times we repeat the following, until we reach n=1:
@@ -583,7 +601,7 @@ public final class WarmUp1 {
 		int value = n;
 		while (value != 1) {
 			if (value % 2 != 0) {
-				value = 3*value + 1;
+				value = 3 * value + 1;
 			} else {
 				value = value / 2;
 			}
