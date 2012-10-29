@@ -16,6 +16,7 @@
 
   <modules>
     <module>day00</module>
+    <module>day03</module>
   </modules>
 
   <dependencies>
@@ -41,4 +42,10 @@
         </plugin>
     </plugins>
   </build>
+
+        <scm>
+                <connection>scm:hg:http://192.168.103.41/training-oct2012/usim</connection>
+                <developerConnection>scm:hg:http://192.168.103.41/training-oct2012/usim</developerConnection>
+                <url>http://192.168.103.41/rhodecode/training-oct2012/summary</url>
+        </scm>
 </project>
