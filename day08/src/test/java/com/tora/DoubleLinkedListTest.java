@@ -48,7 +48,7 @@ public class DoubleLinkedListTest {
 
 	@Test
 	public void addAllTest() {
-		ArrayList<String> list = new ArrayList<String>();
+		List<String> list = new DoubleLinkedList<String>();
 		list.add("Test1");
 		list.add("Test2");
 		list.add("Test3");
@@ -72,6 +72,13 @@ public class DoubleLinkedListTest {
 		assertEquals(1, list.size());
 		assertEquals("test2",list.remove(0));
 		assertEquals(0, list.size());
+	}
+	
+	@Test
+	public void testIteratorFirstElement() {
+		list = new DoubleLinkedList<String>();
+		list.add("abc");
+		assertEquals("abc", list.iterator().next());
 	}
 
 }
