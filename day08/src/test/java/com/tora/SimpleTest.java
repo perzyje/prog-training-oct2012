@@ -6,7 +6,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public final class SimpleTest {
-	private List<Integer> list;
+	private DoubleLinkedList<Integer> list;
 	
 	@Test
 	public void testSize() {
@@ -240,7 +240,7 @@ public final class SimpleTest {
 
 	@Before
 	public void setUp() {
-		list = new ArrayList<Integer>();
+		list = new DoubleLinkedList<Integer>();
 		list.addAll(Arrays.asList(1, 2, 3, 42));
 	}
 }
