@@ -17,12 +17,6 @@ public final class Logic2 {
 	 * makeBricks(3, 2, 10) → true
 	 */
 	public boolean makeBricks(int small, int big, int goal) {
-		if (goal / 5 <= big && goal % 5 <= small) {
-			return true;
-		}
-		if (goal > big * 5 && goal - big * 5 <= small) {
-			return true;
-		}
 		return false;
 	}
 
@@ -40,17 +34,7 @@ public final class Logic2 {
 	 * loneSum(3, 3, 3) → 0
 	 */
 	public int loneSum(int a, int b, int c) {
-		int result = 0;
-		if (a != b && a != c) {
-			result += a;
-		}
-		if (b != a && b != c) {
-			result += b;
-		}
-		if (c != a && c != b) {
-			result += c;
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -68,20 +52,7 @@ public final class Logic2 {
 	 * luckySum(1, 13, 3) → 1
 	 */
 	public int luckySum(int a, int b, int c) {
-		int result = 0;
-		if (a == 13) {
-			return result;
-		}
-		result += a;
-		if (b == 13) {
-			return result;
-		}
-		result += b;
-		if (c == 13) {
-			return result;
-		}
-		result += c;
-		return result;
+		return 0;
 	}
 
 	/*
@@ -102,17 +73,11 @@ public final class Logic2 {
 	 * noTeenSum(2, 1, 14) → 3
 	 */
 	public int noTeenSum(int a, int b, int c) {
-		return fixTeen(a) + fixTeen(b) + fixTeen(c);
+		return 0;
 	}
 
 	public int fixTeen(int n) {
-		if (n == 15 || n == 16) {
-			return n;
-		}
-		if (n >= 13 && n <= 19) {
-			return 0;
-		}
-		return n;
+		return 0;
 	}
 
 	/*
@@ -134,11 +99,11 @@ public final class Logic2 {
 	 * roundSum(6, 4, 4) → 10
 	 */
 	public int roundSum(int a, int b, int c) {
-		return round10(a) + round10(b) + round10(c);
+		return 0;
 	}
 
 	public int round10(int num) {
-		return (num + 5) / 10 * 10;
+		return 0;
 	}
 
 	/*
@@ -156,13 +121,7 @@ public final class Logic2 {
 	 * closeFar(4, 1, 3) → true
 	 */
 	public boolean closeFar(int a, int b, int c) {
-		if (Math.abs(a - b) <= 1) {
-			return Math.abs(c - a) >= 2 && Math.abs(c - b) >= 2;
-		} else if (Math.abs(a - c) <= 1) {
-			return Math.abs(b - a) >= 2 && Math.abs(c - b) >= 2;
-		} else {
-			return false;
-		}
+		return false;
 	}
 
 	/*
@@ -178,13 +137,7 @@ public final class Logic2 {
 	 * blackjack(19, 22) → 19
 	 */
 	public int blackjack(int a, int b) {
-		if (a > 21) {
-			return b > 21 ? 0 : b;
-		} else if (b > 21) {
-			return a > 21 ? 0 : a;
-		} else {
-			return a > b ? a : b;
-		}
+		return 0;
 	}
 
 	/*
@@ -202,23 +155,7 @@ public final class Logic2 {
 	 * evenlySpaced(4, 6, 3) → false
 	 */
 	public boolean evenlySpaced(int a, int b, int c) {
-		int a1 = a, b1 = b, c1 = c;
-		if (a1 > b1) {
-			int t = a1;
-			a1 = b1;
-			b1 = t;
-		}
-		if (b1 > c1) {
-			int t = b1;
-			b1 = c1;
-			c1 = t;
-		}
-		if (a1 > b1) {
-			int t = a1;
-			a1 = b1;
-			b1 = t;
-		}
-		return b1 - a1 == c1 - b1;
+		return false;
 	}
 
 	/*
@@ -236,14 +173,7 @@ public final class Logic2 {
 	 * makeChocolate(4, 1, 7) → 2
 	 */
 	public int makeChocolate(int small, int big, int goal) {
-		if (goal / 5 <= big && goal % 5 <= small) {
-			return goal % 5;
-		}
-		if (goal > big * 5 && goal - big * 5 <= small) {
-			return goal - big * 5;
-		}
-		return -1;
-
+		return 0;
 	}
 
 }

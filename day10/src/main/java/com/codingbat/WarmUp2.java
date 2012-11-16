@@ -14,11 +14,7 @@ public final class WarmUp2 {
 	 * doubleX("xxxxx") → true
 	 */
 	boolean doubleX(String str) {
-		int start = str.indexOf("x");
-		if (start < 0) {
-			return false;
-		}
-		return start == str.indexOf("xx");
+		return false;
 	}
 
 	/*
@@ -34,16 +30,7 @@ public final class WarmUp2 {
 	 * countXX("xxxx") → 3
 	 */
 	int countXX(String str) {
-		int i = 0, result = 0;
-		while (i < str.length()) {
-			int j = str.indexOf("xx", i);
-			if (j < 0) {
-				break;
-			}
-			result++;
-			i = j + 1;
-		}
-		return result;
+		return 0;
 	}
 
 }
