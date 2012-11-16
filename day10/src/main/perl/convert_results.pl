@@ -6,7 +6,7 @@ use warnings;
 use warnings  qw(FATAL utf8);
 use open      qw(:std :utf8);
 
-my $PREFIX = 'array';
+my $PREFIX = 'logic';
 my $first = 1;
 
 while (<>) {
