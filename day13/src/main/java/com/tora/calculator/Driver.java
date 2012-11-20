@@ -3,12 +3,16 @@ package com.tora.calculator;
 import java.io.OutputStream;
 
 final class Driver {
+
+	private double value;
+	private OperationFactory operationFactory;
+
 	public Driver(OutputStream dest) {
-		// TODO Auto-generated constructor stub
+		this.value = 0.0;
+		this.operationFactory = new OperationFactory(dest);
 	}
 
 	public void consume(String string) {
-		// TODO Auto-generated method stub
-		
+		value = operationFactory.getOperation(string).execute(value, string);
 	}
 }
