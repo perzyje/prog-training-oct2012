@@ -17,10 +17,7 @@ public final class Logic1 {
 	 * cigarParty(70, true) → true
 	 */
 	public boolean cigarParty(int cigars, boolean isWeekend) {
-		if (!isWeekend) {
-			return cigars >= 40 && cigars <= 60;
-		}
-		return cigars >= 40;
+		return false;
 	}
 
 	/*
@@ -41,12 +38,6 @@ public final class Logic1 {
 	 * dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
-		if (you >= 8 && date > 2 || you > 2 && date >= 8) {
-			return 2;
-		}
-		if (you > 2 && you < 8 && date > 2 && date < 8) {
-			return 1;
-		}
 		return 0;
 	}
 
@@ -66,10 +57,7 @@ public final class Logic1 {
 	 * squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
-		if (isSummer) {
-			return temp >= 60 && temp <= 100;
-		}
-		return temp >= 60 && temp <= 90;
+		return false;
 	}
 
 	/*
@@ -89,13 +77,7 @@ public final class Logic1 {
 	 * caughtSpeeding(65, true) → 0
 	 */
 	public int caughtSpeeding(int speed, boolean isBirthday) {
-		if (speed <= 60 || (speed <= 65 && isBirthday)) {
-			return 0;
-		}
-		if (speed <= 80 || (speed <= 85 && isBirthday)) {
-			return 1;
-		}
-		return 2;
+		return 0;
 	}
 
 	/*
@@ -111,15 +93,7 @@ public final class Logic1 {
 	 * sortaSum(10, 11) → 21
 	 */
 	public int sortaSum(int a, int b) {
-		int sum = a + b;
-		return forbiddenSum(sum);
-	}
-
-	public int forbiddenSum(int sum) {
-		if (sum >= 10 && sum <= 19) {
-			return 20;
-		}
-		return sum;
+		return 0;
 	}
 
 	/*
@@ -139,20 +113,7 @@ public final class Logic1 {
 	 * alarmClock(0, false) → "10:00"
 	 */
 	public String alarmClock(int day, boolean vacation) {
-		if (!vacation) {
-			if (day >= 1 && day <= 5) {
-				return "7:00";
-			} else {
-				return "10:00";
-			}
-		} else {
-
-			if (day >= 1 && day <= 5) {
-				return "10:00";
-			} else {
-				return "off";
-			}
-		}
+		return null;
 	}
 
 	/*
@@ -169,7 +130,7 @@ public final class Logic1 {
 	 * love6(1, 5) → true
 	 */
 	public boolean love6(int a, int b) {
-		return Math.abs(a - b) == 6 || a + b == 6 || a == 6 || b == 6;
+		return false;
 	}
 
 	/*
@@ -186,11 +147,7 @@ public final class Logic1 {
 	 * in1To10(11, true) → true
 	 */
 	public boolean in1To10(int n, boolean outsideMode) {
-		if (outsideMode) {
-			return n <= 1 || n >= 10;
-		} else {
-			return n >= 1 && n <= 10;
-		}
+		return false;
 	}
 
 	/*
@@ -207,8 +164,7 @@ public final class Logic1 {
 	 * nearTen(19) → true
 	 */
 	public boolean nearTen(int num) {
-		return (Math.abs(num % 10) >= 8 && Math.abs(num % 10) <= 12)
-				|| Math.abs(num % 10) <= 2;
+		return false;
 	}
 
 	/*
@@ -225,10 +181,7 @@ public final class Logic1 {
 	 * teenSum(13, 2) → 19
 	 */
 	public int teenSum(int a, int b) {
-		if (a >= 13 && a <= 19 || b >= 13 && b <= 19) {
-			return 19;
-		}
-		return a + b;
+		return 0;
 	}
 
 	/*
@@ -245,13 +198,7 @@ public final class Logic1 {
 	 * answerCell(true, false, false) → false
 	 */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-		if (isAsleep) {
-			return false;
-		}
-		if (isMorning && !isMom) {
-			return false;
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -271,15 +218,7 @@ public final class Logic1 {
 	 * teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		if (tea < 5 || candy < 5) {
-			return 0;
-		}
-		if (tea >= 5
-				&& candy >= 5
-				&& (Math.abs(tea - candy) >= tea || Math.abs(tea - candy) >= candy)) {
-			return 2;
-		}
-		return 1;
+		return 0;
 	}
 
 	/*
@@ -295,7 +234,7 @@ public final class Logic1 {
 	 * twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
-		return a + b == c || a + c == b || b + c == a;
+		return false;
 	}
 
 	/*
@@ -312,11 +251,7 @@ public final class Logic1 {
 	 * inOrder(1, 1, 2, true) → true
 	 */
 	public boolean inOrder(int a, int b, int c, boolean bOk) {
-		if (bOk) {
-			return c > b;
-		} else {
-			return c > b && b > a;
-		}
+		return false;
 	}
 
 	/*
@@ -334,11 +269,7 @@ public final class Logic1 {
 	 * inOrderEqual(5, 5, 7, true) → true
 	 */
 	public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
-		if (!equalOk) {
-			return b > a && c > b;
-		} else {
-			return b >= a && c >= b;
-		}
+		return false;
 	}
 
 	/*
@@ -355,7 +286,7 @@ public final class Logic1 {
 	 * lastDigit(23, 19, 3) → true
 	 */
 	public boolean lastDigit(int a, int b, int c) {
-		return a % 10 == b % 10 || a % 10 == c % 10 || b % 10 == c % 10;
+		return false;
 	}
 
 	/*
@@ -371,8 +302,7 @@ public final class Logic1 {
 	 * lessBy10(11, 1, 7) → true
 	 */
 	public boolean lessBy10(int a, int b, int c) {
-		return Math.abs(b - a) >= 10 || Math.abs(c - a) >= 10
-				|| Math.abs(b - c) >= 10;
+		return false;
 	}
 
 	/*
@@ -390,17 +320,7 @@ public final class Logic1 {
 	 * withoutDoubles(3, 3, false) → 6
 	 */
 	public int withoutDoubles(int die1, int die2, boolean noDoubles) {
-		int sum = die1 + die2;
-		if (noDoubles && die1 == die2) {
-			if (die1 == 6) {
-				sum = sum - 5;
-			} else if (die1 == 6) {
-				sum = sum - 5;
-			} else {
-				sum = sum + 1;
-			}
-		}
-		return sum;
+		return 0;
 	}
 
 	/*
@@ -419,21 +339,7 @@ public final class Logic1 {
 	 * maxMod5(3, 2) → 3
 	 */
 	public int maxMod5(int a, int b) {
-		if (a == b) {
-			return 0;
-		}
-		if (a % 5 == b % 5) {
-			if (a < b) {
-				return a;
-			} else {
-				return b;
-			}
-		}
-		if (a < b) {
-			return b;
-		} else {
-			return a;
-		}
+		return 0;
 	}
 
 	/*
@@ -451,15 +357,6 @@ public final class Logic1 {
 	 * redTicket(0, 0, 0) → 5
 	 */
 	public int redTicket(int a, int b, int c) {
-		if (a == 2 && a == b && b == c) {
-			return 10;
-		}
-		if (a == b && b == c) {
-			return 5;
-		}
-		if (a != b && a != c) {
-			return 1;
-		}
 		return 0;
 	}
 
@@ -478,12 +375,6 @@ public final class Logic1 {
 	 * greenTicket(1, 1, 2) → 10
 	 */
 	public int greenTicket(int a, int b, int c) {
-		if (a == b && b == c) {
-			return 20;
-		}
-		if (a == b || b == c || c == a) {
-			return 10;
-		}
 		return 0;
 	}
 
@@ -503,12 +394,6 @@ public final class Logic1 {
 	 * blueTicket(6, 1, 4) → 10
 	 */
 	public int blueTicket(int a, int b, int c) {
-		if ((a + b == 10) || (b + c == 10) || (a + c == 10)) {
-			return 10;
-		}
-		if ((a + b - 10) == (b + c) || (a + b - 10) == (a + c)) {
-			return 5;
-		}
 		return 0;
 	}
 
@@ -527,8 +412,7 @@ public final class Logic1 {
 	 * shareDigit(12, 44) → false
 	 */
 	public boolean shareDigit(int a, int b) {
-		return a % 10 == b % 10 || a / 10 == b % 10 || a / 10 == b / 10
-				|| a % 10 == b / 10;
+		return false;
 	}
 
 	/*
@@ -547,12 +431,7 @@ public final class Logic1 {
 	 * sumLimit(8, 1) → 9
 	 */
 	public int sumLimit(int a, int b) {
-		String n = String.valueOf(a);
-		if (String.valueOf(a + b).length() == n.length()) {
-			return a + b;
-		}
-		return a;
-
+		return 0;
 	}
 
 }
