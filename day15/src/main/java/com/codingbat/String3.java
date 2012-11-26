@@ -17,17 +17,7 @@ public final class String3 {
 	 * countYZ("day fyyyz") → 2
 	 */
 	public int countYZ(String str) {
-		int result = 0;
-		for (int i = 0; i < str.length(); ++i) {
-			if (i < str.length() - 1 && Character.isLetter(str.charAt(i + 1))) {
-				continue;
-			}
-			if (str.toLowerCase().charAt(i) == 'y'
-					|| str.toLowerCase().charAt(i) == 'z') {
-				result++;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -46,10 +36,7 @@ public final class String3 {
 	 * withoutString("Hello there", "x") → "Hello there"
 	 */
 	public String withoutString(String base, String remove) {
-		return java.util.regex.Pattern
-				.compile(java.util.regex.Pattern.quote(remove),
-						java.util.regex.Pattern.CASE_INSENSITIVE).matcher(base)
-				.replaceAll("");
+		return null;
 	}
 
 	/*
@@ -66,24 +53,7 @@ public final class String3 {
 	 * equalIsNot("noisxxnotyynotxisi") → true
 	 */
 	public boolean equalIsNot(String str) {
-		int is = 0, not = 0;
-		for (int i = 0;;) {
-			i = str.indexOf("is", i);
-			if (i < 0) {
-				break;
-			}
-			is++;
-			i += 2;
-		}
-		for (int i = 0;;) {
-			i = str.indexOf("not", i);
-			if (i < 0) {
-				break;
-			}
-			not++;
-			i += 3;
-		}
-		return is == not;
+		return false;
 	}
 
 	/*
@@ -100,7 +70,7 @@ public final class String3 {
 	 * gHappy("xxggyygxx") → false
 	 */
 	public boolean gHappy(String str) {
-		return str.replaceAll("gg+", "").indexOf('g') < 0;
+		return false;
 	}
 
 	/*
@@ -117,14 +87,7 @@ public final class String3 {
 	 * countTriple("a") → 0
 	 */
 	public int countTriple(String str) {
-		int result = 0;
-		for (int i = 0; i < str.length() - 2; ++i) {
-			if (str.charAt(i) == str.charAt(i + 1)
-					&& str.charAt(i + 1) == str.charAt(i + 2)) {
-				result += 1;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -143,11 +106,7 @@ public final class String3 {
 	 * sumDigits("Chocolate") → 0
 	 */
 	public int sumDigits(String str) {
-		int result = 0;
-		for (char c : str.replaceAll("\\D+", "").toCharArray()) {
-			result += c - '0';
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -164,12 +123,7 @@ public final class String3 {
 	 * sameEnds("xxx") → "x"
 	 */
 	public String sameEnds(String string) {
-		java.util.regex.Matcher m = java.util.regex.Pattern.compile(
-				"(.*).*?\\1").matcher(string);
-		if (!m.matches()) {
-			return "";
-		}
-		return m.group(1);
+		return null;
 	}
 
 	/*
@@ -188,14 +142,7 @@ public final class String3 {
 	 * mirrorEnds("aba") → "aba"
 	 */
 	public String mirrorEnds(String string) {
-		StringBuilder result = new StringBuilder(string.length());
-		for (int i = 0; i < string.length(); ++i) {
-			if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
-				break;
-			}
-			result.append(string.charAt(i));
-		}
-		return result.toString();
+		return null;
 	}
 
 	/*
@@ -211,16 +158,7 @@ public final class String3 {
 	 * maxBlock("") → 0
 	 */
 	public int maxBlock(String str) {
-		int result = 0;
-		for (int i = 0; i < str.length(); ++i) {
-			for (int j = i; j < str.length(); ++j) {
-				if (str.charAt(i) != str.charAt(j)) {
-					break;
-				}
-				result = Math.max(result, j - i + 1);
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -239,13 +177,7 @@ public final class String3 {
 	 * sumNumbers("7 11") → 18
 	 */
 	public int sumNumbers(String str) {
-		java.util.regex.Matcher m = java.util.regex.Pattern.compile("\\d+")
-				.matcher(str);
-		int result = 0;
-		while (m.find()) {
-			result += Integer.parseInt(m.group());
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -264,7 +196,7 @@ public final class String3 {
 	 * notReplace("This is right") → "This is not right"
 	 */
 	public String notReplace(String str) {
-		return str.replaceAll("(?<!\\w)is(?!\\w)", "is not");
+		return null;
 	}
 
 }

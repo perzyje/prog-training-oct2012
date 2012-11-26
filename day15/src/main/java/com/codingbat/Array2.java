@@ -14,13 +14,7 @@ public final class Array2 {
 	 * countEvens({1, 3, 5}) → 0
 	 */
 	public int countEvens(int[] nums) {
-		int result = 0;
-		for (int i : nums) {
-			if (i % 2 == 0) {
-				result += 1;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -38,12 +32,7 @@ public final class Array2 {
 	 * bigDiff({2, 10, 7, 2}) → 8
 	 */
 	public int bigDiff(int[] nums) {
-		int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-		for (int i : nums) {
-			min = Math.min(min, i);
-			max = Math.max(max, i);
-		}
-		return max - min;
+		return 0;
 	}
 
 }
