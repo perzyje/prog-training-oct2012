@@ -141,12 +141,12 @@ public final class SimpleTest {
 		}
 		i.next();
 	}
-	
 	@Test(expected=NoSuchElementException.class)
 	public void testIteratorNoPrevious(){
 		ListIterator<Integer> i = list.listIterator();
 		i.previous();
 	}
+	
 	
 	@Test
 	public void testIteratorNextIndex() {
@@ -164,7 +164,8 @@ public final class SimpleTest {
 	public void testIteratorPreviousIndex() {
 		ListIterator<Integer> i = list.listIterator();
 		assertEquals(-1, i.previousIndex());
-		i.next();i.next();
+		i.next();
+		i.next();
 		assertEquals(1, i.previousIndex());
 	}
 	
@@ -230,7 +231,8 @@ public final class SimpleTest {
 	@Test
 	public void testIteratorRemove() {
 		ListIterator<Integer> i = list.listIterator();
-		i.next(); i.next();
+		i.next(); 
+		i.next();
 		i.remove();
 		i.next();
 		i.previous();
@@ -240,7 +242,11 @@ public final class SimpleTest {
 
 	@Before
 	public void setUp() {
-		list = new ArrayList<Integer>();
+		list = new DoubleLinkedList<Integer>();
+		/*list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(42);*/
 		list.addAll(Arrays.asList(1, 2, 3, 42));
 	}
 }

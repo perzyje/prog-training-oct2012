@@ -3,82 +3,76 @@ package com.tora;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.*;
 
-public class DoubleLinkedListTest {
+public final class DoubleLinkedListTest {
+
 	private List<String> list;
 
+	public DoubleLinkedListTest() {
+		list = new DoubleLinkedList<String>();
+
+	}
+
 	@Test
-	public void isEmptyTest() {
-		list = new ArrayList<String>();
+	public void isSetCorrect() {
 		assertEquals(0, list.size());
 	}
 
 	@Test
-	public void addToIndexTest() {
-		list = new ArrayList<String>();
-		list.add(0, "element");
+	public void isInsertedCorrect() {
+		list.add("abc");
 		assertEquals(1, list.size());
-		list.add(0, "element");
+		assertEquals("abc", list.get(0));
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void indexGreaterThanSize() {
+		list.add(3, "xc");
+	}
+
+	@Test
+	public void insertCollection() {
+		Collection<String> cs = new ArrayList<String>();
+		cs.add("a1");
+		cs.add("a2");
+		list.addAll(0, cs);
 		assertEquals(2, list.size());
+		assertEquals("a1", list.get(0));
+		assertEquals("a2", list.get(1));
 	}
 
 	@Test
-	public void addElementTest() {
-		list = new ArrayList<String>();
-		list.add("element");
-		assertEquals(1, list.size());
-	}
-
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void addToNonExistingElement() {
-		list = new ArrayList<String>();
-		list.add(-1, "test");
-		list.add(list.size() + 1, "test");
-	}
-
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void accessToNonExistingElement() {
-		list = new ArrayList<String>();
-		list.get(-1);
-		list.get(list.size() + 1);
+	public void removeIndex() {
+		Collection<String> cs = new ArrayList<String>();
+		cs.add("a1");
+		cs.add("a2");
+		cs.add("a3");
+		list.addAll(0, cs);
+		assertEquals("a1", list.remove(0));
+		assertEquals(2, list.size());
+		assertEquals("a2", list.get(0));
+		assertEquals("a3", list.get(1));
 	}
 
 	@Test
-	public void addAllTest() {
-		List<String> list = new ArrayList<String>();
-		list.add("Test1");
-		list.add("Test2");
-		list.add("Test3");
-		list.add("Test4");
-		List<String> listTest = new ArrayList<String>();
-		listTest.addAll(0, list);
-		assertEquals(4, listTest.size());
-		assertEquals("Test1", listTest.get(0));
-		assertEquals("Test2", listTest.get(1));
-		assertEquals("Test3", listTest.get(2));
-		assertEquals("Test4", listTest.get(3));
-	}
-
-	@Test
-	public void removeElementTest() {
-		list = new ArrayList<String>();
-		list.add("test1");
-		list.add("test2");
-		
-		assertEquals("test1",list.remove(0));
-		assertEquals(1, list.size());
-		assertEquals("test2",list.remove(0));
-		assertEquals(0, list.size());
+	public void removeElement() {
+		Collection<String> cs = new ArrayList<String>();
+		cs.add("a1");
+		cs.add("a2");
+		cs.add("a3");
+		list.addAll(0, cs);
+		assertTrue(list.remove("a2"));
+		assertEquals(2, list.size());
+		assertEquals("a1", list.get(0));
+		assertEquals("a3", list.get(1));
 	}
 	
-	@Test
-	public void testIteratorFirstElement() {
-		list = new ArrayList<String>();
-		list.add("abc");
-		assertEquals("abc", list.iterator().next());
-	}
+	
+	
+	
 
 }

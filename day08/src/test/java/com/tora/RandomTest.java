@@ -19,8 +19,11 @@ public final class RandomTest {
 	@Parameters
 	public static Collection<Integer[]> getSeeds() {
 		List<Integer[]> result = new ArrayList<Integer[]>();
+		result.add(new Integer[] { 1396385716 });
+		result.add(new Integer[] { -1287302644 });
 		result.add(new Integer[] { +1415926535 });
 		result.add(new Integer[] { -1582786997 });
+		result.add(new Integer[] { -337032840 });
 
 		Random r = new Random();
 		for (int i = 0; i < 10; ++i) {
@@ -220,7 +223,7 @@ public final class RandomTest {
 
 	@Before
 	public void setUp() {
-		lst = new ArrayList<Integer>();
+		lst = new DoubleLinkedList<Integer>();
 		ref = new LinkedList<Integer>();
 		rnd = new Random(randSeed);
 	}

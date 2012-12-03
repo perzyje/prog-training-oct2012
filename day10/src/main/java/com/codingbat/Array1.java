@@ -14,7 +14,7 @@ public final class Array1 {
 	 * firstLast6({13, 6, 1, 2, 3}) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		return nums[0] == 6 || nums[nums.length - 1] == 6;
 	}
 
 	/*
@@ -30,7 +30,7 @@ public final class Array1 {
 	 * sameFirstLast({1, 2, 1}) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		return (nums.length != 0 && nums[0] == nums[nums.length - 1]);
 	}
 
 	/*
@@ -42,7 +42,8 @@ public final class Array1 {
 	 * makePi() → {3, 1, 4}
 	 */
 	public int[] makePi() {
-		return null;
+		
+		return new int[] { 3, 1, 4 };
 	}
 
 	/*
@@ -59,7 +60,7 @@ public final class Array1 {
 	 * commonEnd({1, 2, 3}, {1, 3}) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		return (a[0] == b[0] || a[a.length - 1] == b[b.length - 1]);
 	}
 
 	/*
@@ -74,7 +75,7 @@ public final class Array1 {
 	 * sum3({7, 0, 0}) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		return nums[0] + nums[1] + nums[2];
 	}
 
 	/*
@@ -90,7 +91,7 @@ public final class Array1 {
 	 * rotateLeft3({7, 0, 0}) → {0, 0, 7}
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return null;
+		return new int[] { nums[1], nums[2], nums[0] };
 	}
 
 	/*
@@ -106,7 +107,7 @@ public final class Array1 {
 	 * reverse3({7, 0, 0}) → {0, 0, 7}
 	 */
 	public int[] reverse3(int[] nums) {
-		return null;
+		return new int[] { nums[2], nums[1], nums[0] };
 	}
 
 	/*
@@ -123,7 +124,8 @@ public final class Array1 {
 	 * maxEnd3({2, 11, 3}) → {3, 3, 3}
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return null;
+		int max = (nums[0] < nums[2] ? nums[2] : nums[0]);
+		return new int[] { max, max, max };
 	}
 
 	/*
@@ -140,7 +142,13 @@ public final class Array1 {
 	 * sum2({1, 1, 1, 1}) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+		if (nums.length == 0) {
+			return 0;
+		}
+		if (nums.length == 1) {
+			return nums[0];
+		}
+		return nums[0] + nums[1];
 	}
 
 	/*
@@ -156,7 +164,7 @@ public final class Array1 {
 	 * middleWay({5, 2, 9}, {1, 4, 5}) → {2, 4}
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return null;
+		return new int[] { a[1], b[1] };
 	}
 
 	/*
@@ -173,7 +181,7 @@ public final class Array1 {
 	 * makeEnds({7, 4, 6, 2}) → {7, 2}
 	 */
 	public int[] makeEnds(int[] nums) {
-		return null;
+		return new int[] { nums[0], nums[nums.length - 1] };
 	}
 
 	/*
@@ -188,7 +196,7 @@ public final class Array1 {
 	 * has23({4, 5}) → false
 	 */
 	public boolean has23(int[] nums) {
-		return false;
+		return (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3);
 	}
 
 	/*
@@ -203,7 +211,7 @@ public final class Array1 {
 	 * no23({3, 5}) → false
 	 */
 	public boolean no23(int[] nums) {
-		return false;
+		return (!has23(nums));
 	}
 
 	/*
@@ -221,7 +229,9 @@ public final class Array1 {
 	 * makeLast({3}) → {0, 3}
 	 */
 	public int[] makeLast(int[] nums) {
-		return null;
+		int[] rez = new int[nums.length * 2];
+		rez[nums.length * 2 - 1] = nums[nums.length - 1];
+		return rez;
 	}
 
 	/*
@@ -237,7 +247,13 @@ public final class Array1 {
 	 * double23({2, 3}) → false
 	 */
 	public boolean double23(int[] nums) {
-		return false;
+		int inst2 = 0;
+		int inst3 = 0;
+		for (int i = 0; i < nums.length; i++) {
+			inst2 += (nums[i] == 2 ? 1 : 0);
+			inst3 += (nums[i] == 3 ? 1 : 0);
+		}
+		return (inst2 == 2 || inst3 == 2);
 	}
 
 	/*
@@ -253,7 +269,12 @@ public final class Array1 {
 	 * fix23({1, 2, 1}) → {1, 2, 1}
 	 */
 	public int[] fix23(int[] nums) {
-		return null;
+		int[] rez = new int[nums.length];
+		rez[0] = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			rez[i] = (nums[i] == 3 && nums[i - 1] == 2 ? 0 : nums[i]);
+		}
+		return rez;
 	}
 
 	/*
@@ -269,7 +290,8 @@ public final class Array1 {
 	 * start1({1, 2}, {}) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		return 0;
+		return 0 + (a.length != 0 && a[0] == 1 ? 1 : 0)
+				+ (b.length != 0 && b[0] == 1 ? 1 : 0);
 	}
 
 	/*
@@ -286,7 +308,7 @@ public final class Array1 {
 	 * biggerTwo({1, 1}, {1, 2}) → {1, 2}
 	 */
 	public int[] biggerTwo(int[] a, int[] b) {
-		return null;
+		return ((a[0] + a[1] + a[2]) < (b[0] + b[1] + b[2]) ? b : a);
 	}
 
 	/*
@@ -303,7 +325,7 @@ public final class Array1 {
 	 * makeMiddle({1, 2}) → {1, 2}
 	 */
 	public int[] makeMiddle(int[] nums) {
-		return null;
+		return new int[] { nums[nums.length / 2 - 1], nums[nums.length / 2] };
 	}
 
 	/*
@@ -319,7 +341,7 @@ public final class Array1 {
 	 * plusTwo({9, 2}, {3, 4}) → {9, 2, 3, 4}
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return null;
+		return new int[] { a[0], a[1], b[0], b[1] };
 	}
 
 	/*
@@ -335,7 +357,11 @@ public final class Array1 {
 	 * swapEnds({8, 6, 7, 9, 5}) → {5, 6, 7, 9, 8}
 	 */
 	public int[] swapEnds(int[] nums) {
-		return null;
+		int[] mod = new int[nums.length];
+		System.arraycopy(nums, 0, mod, 0, nums.length);
+		mod[0] = nums[nums.length - 1];
+		mod[nums.length - 1] = nums[0];
+		return mod;
 	}
 
 	/*
@@ -352,7 +378,8 @@ public final class Array1 {
 	 * midThree({1, 2, 3}) → {1, 2, 3}
 	 */
 	public int[] midThree(int[] nums) {
-		return null;
+		return new int[] { nums[nums.length / 2 - 1], nums[nums.length / 2],
+				nums[nums.length / 2 + 1] };
 	}
 
 	/*
@@ -368,7 +395,8 @@ public final class Array1 {
 	 * maxTriple({5, 2, 3}) → 5
 	 */
 	public int maxTriple(int[] nums) {
-		return 0;
+		return (nums[nums.length / 2] < nums[nums.length] ? nums[nums.length / 2]
+				: nums[nums.length]);
 	}
 
 	/*
@@ -385,7 +413,10 @@ public final class Array1 {
 	 * frontPiece({1}) → {1}
 	 */
 	public int[] frontPiece(int[] nums) {
-		return null;
+		int lung = (nums.length > 2 ? 2 : nums.length);
+		int[] rez = new int[lung];
+		System.arraycopy(nums, 0, rez, 0, lung);
+		return rez;
 	}
 
 	/*
@@ -402,6 +433,18 @@ public final class Array1 {
 	 * unlucky1({1, 1, 1}) → false
 	 */
 	public boolean unlucky1(int[] nums) {
+		if (nums.length < 2) {
+			return false;
+		}
+		if (nums[0] == 1 && nums[1] == 3) {
+			return true;
+		}
+		if (nums[1] == 1 && nums[2] == 3) {
+			return true;
+		}
+		if (nums[nums.length - 2] == 1 && nums[nums.length - 1] == 3) {
+			return true;
+		}
 		return false;
 	}
 
@@ -420,7 +463,14 @@ public final class Array1 {
 	 * make2({}, {1, 2}) → {1, 2}
 	 */
 	public int[] make2(int[] a, int[] b) {
-		return null;
+		if (a.length > 1) {
+			return new int[] { a[0], a[1] };
+		}
+		if (a.length == 1) {
+			return new int[] { a[0], b[0] };
+		}
+		return new int[] { b[0], b[1] };
+
 	}
 
 	/*
@@ -437,6 +487,18 @@ public final class Array1 {
 	 * front11({1, 7}, {}) → {1}
 	 */
 	public int[] front11(int[] a, int[] b) {
-		return null;
+		if (a.length == 0) {
+			if (b.length == 0) {
+				return new int[] {};
+			} else {
+				return new int[] { b[0] };
+			}
+		} else {
+			if (b.length == 0) {
+				return new int[] { a[0] };
+			} else {
+				return new int[] { a[0], b[0] };
+			}
+		}
 	}
 }

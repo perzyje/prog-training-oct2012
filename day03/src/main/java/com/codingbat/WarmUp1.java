@@ -23,7 +23,7 @@ public final class WarmUp1 {
 	 * sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
+		return (!weekday || vacation);
 	}
 
 	/*
@@ -40,7 +40,10 @@ public final class WarmUp1 {
 	 * monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-		return false;
+		if ((aSmile && !bSmile) || (!aSmile && bSmile)) {
+			return false;
+		}
+		return true;
 	}
 
 	/*
@@ -56,7 +59,7 @@ public final class WarmUp1 {
 	 * sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
+		return (a == b) ? (a + b) * 2 : (a + b);
 	}
 
 	/*
@@ -72,7 +75,7 @@ public final class WarmUp1 {
 	 * diff21(21) → 0
 	 */
 	public int diff21(int n) {
-		return 0;
+		return (n < 21) ? 21 - n : (n - 21) * 2;
 	}
 
 	/*
@@ -89,7 +92,7 @@ public final class WarmUp1 {
 	 * parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
-		return false;
+		return (talking && ((hour < 7) || (hour > 20)));
 	}
 
 	/*
@@ -105,7 +108,7 @@ public final class WarmUp1 {
 	 * makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
-		return false;
+		return ((a == 10) || (b == 10) || (a + b) == 10);
 	}
 
 	/*
@@ -121,7 +124,7 @@ public final class WarmUp1 {
 	 * nearHundred(89) → false
 	 */
 	public boolean nearHundred(int n) {
-		return false;
+		return ((Math.abs(100 - n) <= 10) || (Math.abs(200 - n) <= 10));
 	}
 
 	/*
@@ -138,7 +141,7 @@ public final class WarmUp1 {
 	 * posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
-		return false;
+		return (negative) ? (a < 0 && b < 0) : (a * b <= 0);
 	}
 
 	/*
@@ -155,7 +158,7 @@ public final class WarmUp1 {
 	 * notString("not bad") → "not bad"
 	 */
 	public String notString(String str) {
-		return null;
+		return (str.startsWith("not")) ? str : "not " + str;
 	}
 
 	/*
@@ -173,7 +176,7 @@ public final class WarmUp1 {
 	 * missingChar("kitten", 4) → "kittn"
 	 */
 	public String missingChar(String str, int n) {
-		return null;
+		return (str.substring(0, n) + str.substring(n + 1));
 	}
 
 	/*
@@ -189,7 +192,11 @@ public final class WarmUp1 {
 	 * frontBack("ab") → "ba"
 	 */
 	public String frontBack(String str) {
-		return null;
+		if (str.length() <= 1) {
+			return str;
+		}
+		return (str.charAt(str.length() - 1)
+				+ str.substring(1, str.length() - 1) + str.charAt(0));
 	}
 
 	/*
@@ -206,7 +213,11 @@ public final class WarmUp1 {
 	 * front3("abc") → "abcabcabc"
 	 */
 	public String front3(String str) {
-		return null;
+		if (str.length() < 3) {
+			return (str + str + str);
+		}
+		String s = str.substring(0, 3);
+		return (s + s + s);
 	}
 
 	/*
@@ -223,7 +234,8 @@ public final class WarmUp1 {
 	 * backAround("a") → "aaa"
 	 */
 	public String backAround(String str) {
-		return null;
+		return str.charAt(str.length() - 1) + str
+				+ str.charAt(str.length() - 1);
 	}
 
 	/*
@@ -240,7 +252,12 @@ public final class WarmUp1 {
 	 * front22("abc") → "ababcab"
 	 */
 	public String front22(String str) {
-		return null;
+		if (str.length() <= 2) {
+			return (str + str + str);
+		} else {
+			String s = str.substring(0, 2);
+			return (s + str + s);
+		}
 	}
 
 	/*
@@ -256,7 +273,7 @@ public final class WarmUp1 {
 	 * startHi("hello hi") → false
 	 */
 	public boolean startHi(String str) {
-		return false;
+		return (str.startsWith("hi"));
 	}
 
 	/*
@@ -272,7 +289,7 @@ public final class WarmUp1 {
 	 * icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
-		return false;
+		return ((temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0));
 	}
 
 	/*
@@ -288,7 +305,7 @@ public final class WarmUp1 {
 	 * in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
-		return false;
+		return ((a >= 10 && a <= 20) || (b >= 10 && b <= 20));
 	}
 
 	/*
@@ -304,6 +321,15 @@ public final class WarmUp1 {
 	 * hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
+		if (a >= 13 && a <= 19) {
+			return true;
+		}
+		if (b >= 13 && b <= 19) {
+			return true;
+		}
+		if (c >= 13 && c <= 19) {
+			return true;
+		}
 		return false;
 	}
 
@@ -321,7 +347,17 @@ public final class WarmUp1 {
 	 * loneTeen(13, 13) → false
 	 */
 	public boolean loneTeen(int a, int b) {
-		return false;
+		if ((a >= 13 && a <= 19)) {
+			if (!(b >= 13 && b <= 19)) {
+				return true;
+			}
+			return false;
+		} else {
+			if ((b >= 13 && b <= 19)) {
+				return true;
+			}
+			return false;
+		}
 	}
 
 	/*
@@ -338,7 +374,15 @@ public final class WarmUp1 {
 	 * delDel("adedbc") → "adedbc"
 	 */
 	public String delDel(String str) {
-		return null;
+		if (str.length() < 3) {
+			return str;
+		}
+		if (str.substring(1).startsWith("del")) {
+			String s = str.substring(0, 1) + str.substring(4);
+			return (s);
+		} else {
+			return (str);
+		}
 	}
 
 	/*
@@ -354,7 +398,8 @@ public final class WarmUp1 {
 	 * mixStart("piz snacks") → false
 	 */
 	public boolean mixStart(String str) {
-		return false;
+		return (str.length() < 3) ? false : (str.charAt(1) == 'i' && str
+				.charAt(2) == 'x');
 	}
 
 	/*
@@ -371,7 +416,19 @@ public final class WarmUp1 {
 	 * startOz("oxx") → "o"
 	 */
 	public String startOz(String str) {
-		return null;
+		if (str.length() == 0) {
+			return str;
+		}
+		if (str.startsWith("oz")) {
+			return "oz";
+		}
+		if (str.charAt(0) == 'o') {
+			return "o";
+		}
+		if (str.charAt(1) == 'z') {
+			return "z";
+		}
+		return "";
 	}
 
 	/*
@@ -386,7 +443,10 @@ public final class WarmUp1 {
 	 * intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		return 0;
+		if (a > b && a > c) {
+			return a;
+		}
+		return intMax(b, c, a);
 	}
 
 	/*
@@ -403,6 +463,12 @@ public final class WarmUp1 {
 	 * close10(13, 7) → 0
 	 */
 	public int close10(int a, int b) {
+		if (Math.abs(10 - a) < Math.abs(10 - b)) {
+			return a;
+		}
+		if (Math.abs(10 - a) > Math.abs(10 - b)) {
+			return b;
+		}
 		return 0;
 	}
 
@@ -418,7 +484,17 @@ public final class WarmUp1 {
 	 * 
 	 * in3050(40, 50) → true
 	 */
+	private boolean inInterval(int a, int limj, int limup) {
+		return (a >= limj && a <= limup);
+	}
+
 	public boolean in3050(int a, int b) {
+		if (inInterval(a, 30, 40) && inInterval(b, 30, 40)) {
+			return true;
+		}
+		if (inInterval(a, 40, 50) && inInterval(b, 40, 50)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -435,7 +511,14 @@ public final class WarmUp1 {
 	 * max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		return 0;
+		int max = 0;
+		if (a >= 10 && a <= 20) {
+			max = Math.max(a, max);
+		}
+		if (b >= 10 && b <= 20) {
+			max = Math.max(b, max);
+		}
+		return max;
 	}
 
 	/*
@@ -450,6 +533,19 @@ public final class WarmUp1 {
 	 * stringE("Heelele") → false
 	 */
 	public boolean stringE(String str) {
+		int i;
+		int inst = 0;
+		for (i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == 'e') {
+				inst++;
+			}
+			if (inst == 4) {
+				return false;
+			}
+		}
+		if (inst > 0) {
+			return true;
+		}
 		return false;
 	}
 
@@ -466,8 +562,9 @@ public final class WarmUp1 {
 	 * 
 	 * lastDigit(3, 113) → true
 	 */
+
 	public boolean lastDigit(int a, int b) {
-		return false;
+		return (a % 10 == b % 10);
 	}
 
 	/*
@@ -485,7 +582,11 @@ public final class WarmUp1 {
 	 * endUp("hi") → "HI"
 	 */
 	public String endUp(String str) {
-		return null;
+		if (str.length() < 3) {
+			return str.toUpperCase();
+		}
+		return str.substring(0, str.length() - 3)
+				+ str.substring(str.length() - 3).toUpperCase();
 	}
 
 	/*
@@ -502,13 +603,16 @@ public final class WarmUp1 {
 	 * everyNth("abcdefg", 3) → "adg"
 	 */
 	public String everyNth(String str, int n) {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < str.length(); i = i + n) {
+			sb.append(str.charAt(i));
+		}
+		return sb.toString();
 	}
 
 	/*
 	 * http://blog.racket-lang.org/2012/10/the-3n1-problem_4990.html
-	 * http://xkcd.com/710/
-	 * http://en.wikipedia.org/wiki/Collatz_conjecture
+	 * http://xkcd.com/710/ http://en.wikipedia.org/wiki/Collatz_conjecture
 	 * 
 	 * Consider a positive number n. The cycle length of n is the number of
 	 * times we repeat the following, until we reach n=1:
@@ -522,6 +626,16 @@ public final class WarmUp1 {
 	 * it took 16 repetitions to get to 1.
 	 */
 	public int collatzCycleLength(int n) {
-		return 0;
+		int pha = 0;
+		int na = n;
+		while (na != 1) {
+			pha++;
+			if (na % 2 == 0) {
+				na = na / 2;
+			} else {
+				na = 3 * na + 1;
+			}
+		}
+		return pha;
 	}
 }
