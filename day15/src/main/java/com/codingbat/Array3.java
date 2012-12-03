@@ -4,10 +4,10 @@ public final class Array3 {
 	/*
 	 * http://codingbat.com/prob/p189576
 	 * 
-	 * Consider the leftmost and rightmost appearances of some value in an
-	 * array. We'll say that the "span" is the number of elements between the
-	 * two inclusive. A single value has a span of 1. Returns the largest span
-	 * found in the given array. (Efficiency is not a priority.)
+	 * Consider the leftmost and righmost appearances of some value in an array.
+	 * We'll say that the "span" is the number of elements between the two
+	 * inclusive. A single value has a span of 1. Returns the largest span found
+	 * in the given array. (Efficiency is not a priority.)
 	 * 
 	 * maxSpan({1, 2, 1, 1, 3}) → 4
 	 * 
@@ -15,24 +15,8 @@ public final class Array3 {
 	 * 
 	 * maxSpan({1, 4, 2, 1, 4, 4, 4}) → 6
 	 */
-
-	private int span(int[] nums, int current) {
-		int i = nums.length - 1;
-		while (i > current && nums[i] != nums[current]) {
-			i--;
-		}
-		return i - current + 1;
-
-	}
-
 	public int maxSpan(int[] nums) {
-		int max = 0;
-		int spa = 0;
-		for (int i = 0; i < nums.length; i++) {
-			spa = span(nums, i);
-			max = (max < spa) ? spa : max;
-		}
-		return max;
+		return 0;
 	}
 
 	/*
@@ -50,40 +34,8 @@ public final class Array3 {
 	 * 
 	 * fix34({3, 2, 2, 4}) → {3, 4, 2, 2}
 	 */
-
-	private int findNext(int[] nums, int fi, int se) {
-		int sta = 0;
-		if (nums[0] == se) {
-			return 0;
-		}
-		while (true) {
-			while (sta < nums.length && nums[sta] != se) {
-				sta++;
-			}
-			if (nums[sta - 1] != fi) {
-				return sta;
-			} else {
-				sta++;
-			}
-		}
-	}
-
-	private int[] fixnm(int[] nums, int n, int m) {
-		int tmp = 0;
-		int aux;
-		for (int i = 0; i < nums.length - 1; i++) {
-			if (nums[i] == n && !(nums[i + 1] == m)) {
-				tmp = findNext(nums, n, m);
-				aux = nums[tmp];
-				nums[tmp] = nums[i + 1];
-				nums[i + 1] = aux;
-			}
-		}
-		return nums;
-	}
-
 	public int[] fix34(int[] nums) {
-		return fixnm(nums, 3, 4);
+		return null;
 	}
 
 	/*
@@ -103,7 +55,7 @@ public final class Array3 {
 	 * fix45({1, 4, 1, 5, 5, 4, 1}) → {1, 4, 5, 1, 1, 4, 5}
 	 */
 	public int[] fix45(int[] nums) {
-		return fixnm(nums, 4, 5);
+		return null;
 	}
 
 	/*
@@ -119,22 +71,7 @@ public final class Array3 {
 	 * 
 	 * canBalance({10, 10}) → true
 	 */
-
 	public boolean canBalance(int[] nums) {
-		int s = 0;
-		for (int n : nums) {
-			s += n;
-		}
-		int l = 0;
-		for (int n : nums) {
-			l += n;
-			if (s == 2 * l) {
-				return true;
-			}
-			if (s < 2 * l) {
-				return false;
-			}
-		}
 		return false;
 	}
 
@@ -153,27 +90,7 @@ public final class Array3 {
 	 * linearIn({1, 2, 4, 4, 6}, {2, 4}) → true
 	 */
 	public boolean linearIn(int[] outer, int[] inner) {
-		int iterI = 0;
-		int iterO = 0;
-		while (iterI < inner.length && iterO < outer.length) {
-			if (outer[iterO] > inner[iterI]) {
-				return false;
-			} else if (outer[iterO] == inner[iterI]) {
-				iterO++;
-				iterI++;
-
-			} else {
-				iterO++;
-			}
-		}
-		if (iterI == inner.length) {
-			return true;
-		}
-		if (iterO >= outer.length) {
-			return false;
-		}
-		return true;
-
+		return false;
 	}
 
 	/*
@@ -189,20 +106,7 @@ public final class Array3 {
 	 * squareUp(4) → {0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 2, 1, 4, 3, 2, 1}
 	 */
 	public int[] squareUp(int n) {
-		int[] res = new int[n * n];
-		int lim = n;
-		int upto = 1;
-		for (int i = 0; i < n * n; i++) {
-			if (lim <= upto) {
-				res[i] = lim;
-			}
-			lim--;
-			if (lim == 0) {
-				lim = n;
-				upto++;
-			}
-		}
-		return res;
+		return null;
 	}
 
 	/*
@@ -219,20 +123,7 @@ public final class Array3 {
 	 * seriesUp(2) → {1, 1, 2}
 	 */
 	public int[] seriesUp(int n) {
-		int[] res = new int[n * (n + 1) / 2];
-		int limsup = 1;
-		int count = 1;
-		for (int i = 0; i < n * (n + 1) / 2; i++) {
-			res[i] = count;
-			if (count == limsup) {
-				count = 1;
-				limsup++;
-			} else {
-				count++;
-			}
-		}
-		return res;
-
+		return null;
 	}
 
 	/*
@@ -248,19 +139,7 @@ public final class Array3 {
 	 * countClumps({1, 1, 1, 1, 1}) → 1
 	 */
 	public int countClumps(int[] nums) {
-		int clumps = 0;
-		boolean lastSame = false;
-		for (int i = 1; i < nums.length; i++) {
-			if (nums[i] == nums[i - 1]) {
-				if (!lastSame) {
-					clumps++;
-					lastSame = true;
-				}
-			} else {
-				lastSame = false;
-			}
-		}
-		return clumps;
+		return 0;
 	}
 
 	/*
@@ -279,30 +158,7 @@ public final class Array3 {
 	 * maxMirror({7, 1, 2, 9, 7, 2, 1}) → 2
 	 */
 	public int maxMirror(int[] nums) {
-		int[] rev = new int[nums.length];
-
-		for (int i = 0; i < nums.length; i++) {
-			rev[nums.length - i - 1] = nums[i];
-		}
-		int[][] matrix = new int[nums.length][nums.length];
-		int maxNow = 0;
-		for (int i = 0; i < nums.length; i++) {
-			for (int j = 0; j < nums.length; j++) {
-				if (nums[i] == rev[j]) {
-					if (i == 0 || j == 0) {
-						matrix[i][j] = 1;
-					} else {
-						matrix[i][j] = matrix[i - 1][j - 1] + 1;
-					}
-					if (matrix[i][j] > maxNow) {
-						maxNow = matrix[i][j];
-					}
-				} else {
-					matrix[i][j] = 0;
-				}
-			}
-		}
-		return maxNow;
+		return 0;
 	}
 
 }
