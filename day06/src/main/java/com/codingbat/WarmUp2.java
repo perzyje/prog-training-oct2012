@@ -14,11 +14,7 @@ public final class WarmUp2 {
 	 * stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < n; i++) {
-			s.append(str);
-		}
-		return s.toString();
+		return null;
 	}
 
 	/*
@@ -35,8 +31,7 @@ public final class WarmUp2 {
 	 * frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return (str.length() < 3) ? stringTimes(str, n) : stringTimes(
-				str.substring(0, 3), n);
+		return null;
 	}
 
 	/*
@@ -52,11 +47,7 @@ public final class WarmUp2 {
 	 * stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < str.length(); i += 2) {
-			s.append(str.charAt(i));
-		}
-		return s.toString();
+		return null;
 	}
 
 	/*
@@ -71,11 +62,7 @@ public final class WarmUp2 {
 	 * stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < str.length(); i++) {
-			s.append(str.substring(0, i + 1));
-		}
-		return s.toString();
+		return null;
 	}
 
 	/*
@@ -92,16 +79,7 @@ public final class WarmUp2 {
 	 * last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		String lastW = (str.length() < 2 ? str : str
-				.substring(str.length() - 2));
-		int instances = 0;
-		String s = str;
-		instances = 0;
-		while (s.indexOf(lastW) != s.length() - lastW.length()) {
-			s = s.substring(s.indexOf(lastW) + 1);
-			instances++;
-		}
-		return instances;
+		return 0;
 	}
 
 	/*
@@ -116,13 +94,7 @@ public final class WarmUp2 {
 	 * arrayCount9({1, 9, 9, 3, 9}) → 3
 	 */
 	public int arrayCount9(int[] nums) {
-		int instances = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 9) {
-				instances++;
-			}
-		}
-		return instances;
+		return 0;
 	}
 
 	/*
@@ -138,12 +110,6 @@ public final class WarmUp2 {
 	 * arrayFront9({1, 2, 3, 4, 5}) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
-		int lim = nums.length < 4 ? nums.length : 4;
-		for (int i = 0; i < lim; i++) {
-			if (nums[i] == 9) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -160,14 +126,6 @@ public final class WarmUp2 {
 	 * array123({1, 1, 2, 1, 2, 3}) → true
 	 */
 	public boolean array123(int[] nums) {
-		if (nums.length < 3) {
-			return false;
-		}
-		for (int i = 0; i < nums.length - 2; i++) {
-			if (nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -186,15 +144,7 @@ public final class WarmUp2 {
 	 * stringMatch("abc", "axc") → 0
 	 */
 	public int stringMatch(String a, String b) {
-		int max = a.length() < b.length() ? a.length() : b.length();
-		int insta = 0;
-		for (int i = 0; i < max - 1; i++) {
-			if ((a.charAt(i) == b.charAt(i))
-					&& (a.charAt(i + 1)) == b.charAt(i + 1)) {
-				insta++;
-			}
-		}
-		return insta;
+		return 0;
 	}
 
 	/*
@@ -210,15 +160,7 @@ public final class WarmUp2 {
 	 * stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		if (str.length() < 3) {
-			return str;
-		}
-		String s = str.substring(1, str.length() - 1);
-		while (s.indexOf('x') != -1) {
-			s = s.substring(0, s.indexOf('x'))
-					+ s.substring(s.indexOf('x') + 1);
-		}
-		return str.charAt(0) + s + str.charAt(str.length() - 1);
+		return null;
 	}
 
 	/*
@@ -234,16 +176,7 @@ public final class WarmUp2 {
 	 * altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		StringBuilder sb = new StringBuilder();
-		if (str.length() < 2) {
-			return str;
-		}
-		for (int i = 0; i < str.length(); i++) {
-			if (i % 4 == 0 || i % 4 == 1) {
-				sb.append(str.charAt(i));
-			}
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -260,7 +193,7 @@ public final class WarmUp2 {
 	 * stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return str.replaceAll("y.k", "");
+		return null;
 	}
 
 	/*
@@ -277,23 +210,7 @@ public final class WarmUp2 {
 	 * array667({6, 7, 2, 6}) → 1
 	 */
 	public int array667(int[] nums) {
-		boolean last6 = false;
-		int insta = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 6) {
-				if (last6) {
-					insta++;
-				} else {
-					last6 = true;
-				}
-			} else {
-				if (nums[i] == 7 && last6) {
-					insta++;
-				}
-				last6 = false;
-			}
-		}
-		return insta;
+		return 0;
 	}
 
 	/*
@@ -310,12 +227,7 @@ public final class WarmUp2 {
 	 * noTriples({1, 1, 1, 2, 2, 2, 1}) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		for (int i = 0; i < nums.length - 2; i++) {
-			if (nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2]) {
-				return false;
-			}
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -333,12 +245,7 @@ public final class WarmUp2 {
 	 * has271({2, 7, 1}) → true
 	 */
 	public boolean has271(int[] nums) {
-		for (int i = 0; i < nums.length - 2; i++) {
-			if ((nums[i + 1] == nums[i] + 5)
-					&& Math.abs(nums[i + 2] - (nums[i] - 1)) <= 2) {
-				return true;
-			}
-		}
 		return false;
 	}
+
 }
