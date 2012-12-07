@@ -312,7 +312,10 @@ public final class Server {
 					try {
 						final Random r = new Random();
 						final Choice[] values = Choice.values();
-						GameClient randomClient = new GameClient("127.1.2.3", GAME_PORT, "ServerDefaultRandom") {
+						GameClient randomClient = new GameClient("127.1.2.3", GAME_PORT, "ServerDefaultRandom") 
+						//GameClient randomClient = new MyGame("127.1.2.20", GAME_PORT, "iNuc")
+						{
+						
 							@Override
 							Choice getChoice(String opponent) {
 							 	return values[ r.nextInt(values.length) ];

@@ -14,7 +14,7 @@ public final class String1 {
 	 * helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		return "Hello " + name + "!";
 	}
 
 	/*
@@ -30,7 +30,7 @@ public final class String1 {
 	 * makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		return a + b + b + a;
 	}
 
 	/*
@@ -48,7 +48,7 @@ public final class String1 {
 	 * makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		return "<" + tag + ">" + word + "</" + tag + ">";
 	}
 
 	/*
@@ -66,7 +66,8 @@ public final class String1 {
 	 * makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		return out.substring(0, out.length() / 2) + word
+				+ out.substring(out.length() / 2);
 	}
 
 	/*
@@ -82,7 +83,9 @@ public final class String1 {
 	 * extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		return str.substring(str.length() - 2)
+				+ str.substring(str.length() - 2)
+				+ str.substring(str.length() - 2);
 	}
 
 	/*
@@ -101,7 +104,7 @@ public final class String1 {
 	 * firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		return str.substring(0, str.length() < 2 ? str.length() : 2);
 	}
 
 	/*
@@ -117,7 +120,7 @@ public final class String1 {
 	 * firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		return str.substring(0, str.length() / 2);
 	}
 
 	/*
@@ -133,7 +136,7 @@ public final class String1 {
 	 * withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		return str.substring(1, str.length() - 1);
 	}
 
 	/*
@@ -151,7 +154,7 @@ public final class String1 {
 	 * comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		return (a.length() < b.length() ? a + b + a : b + a + b);
 	}
 
 	/*
@@ -167,7 +170,7 @@ public final class String1 {
 	 * nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+		return a.substring(1) + b.substring(1);
 	}
 
 	/*
@@ -183,7 +186,7 @@ public final class String1 {
 	 * left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		return str.substring(2) + str.substring(0, 2);
 	}
 
 	/*
@@ -199,7 +202,8 @@ public final class String1 {
 	 * right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return null;
+		return str.substring(str.length() - 2, str.length())
+				+ str.substring(0, str.length() - 2);
 	}
 
 	/*
@@ -216,7 +220,8 @@ public final class String1 {
 	 * theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		return (front ? str.substring(0, 1) : str.substring(str.length() - 1,
+				str.length()));
 	}
 
 	/*
@@ -232,7 +237,7 @@ public final class String1 {
 	 * withouEnd2("ab") → ""
 	 */
 	public String withouEnd2(String str) {
-		return null;
+		return (str.length() < 3 ? "" : str.substring(1, str.length() - 1));
 	}
 
 	/*
@@ -249,7 +254,7 @@ public final class String1 {
 	 * middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		return str.substring(str.length() / 2 - 1, str.length() / 2 + 1);
 	}
 
 	/*
@@ -264,7 +269,7 @@ public final class String1 {
 	 * endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
-		return false;
+		return str.endsWith("ly");
 	}
 
 	/*
@@ -280,7 +285,8 @@ public final class String1 {
 	 * nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		return str.substring(0, n)
+				+ str.substring(str.length() - n, str.length());
 	}
 
 	/*
@@ -297,7 +303,11 @@ public final class String1 {
 	 * twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		return null;
+		if (index > str.length() - 2 || index < 0) {
+			return str.substring(0, 2);
+		} else {
+			return str.substring(index, index + 2);
+		}
 	}
 
 	/*
@@ -313,7 +323,7 @@ public final class String1 {
 	 * middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		return str.substring(str.length() / 2 - 1, str.length() / 2 + 2);
 	}
 
 	/*
@@ -331,6 +341,15 @@ public final class String1 {
 	 * hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
+		if (str.equals("")) {
+			return false;
+		}
+		if (str.startsWith("bad")) {
+			return true;
+		}
+		if (str.length() != 1 && str.substring(1).startsWith("bad")) {
+			return true;
+		}
 		return false;
 	}
 
@@ -347,7 +366,14 @@ public final class String1 {
 	 * atFirst("h") → "h@"
 	 */
 	public String atFirst(String str) {
-		return null;
+		switch (str.length()) {
+		case 0:
+			return "@@";
+		case 1:
+			return str + "@";
+		default:
+			return str.substring(0, 2);
+		}
 	}
 
 	/*
@@ -364,7 +390,18 @@ public final class String1 {
 	 * lastChars("hi", "") → "h@"
 	 */
 	public String lastChars(String a, String b) {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		if (a.length() == 0) {
+			sb.append("@");
+		} else {
+			sb.append(a.charAt(0));
+		}
+		if (b.length() == 0) {
+			sb.append("@");
+		} else {
+			sb.append(b.charAt(b.length() - 1));
+		}
+		return sb.toString();
 	}
 
 	/*
@@ -381,7 +418,17 @@ public final class String1 {
 	 * conCat("abc", "") → "abc"
 	 */
 	public String conCat(String a, String b) {
-		return null;
+		if (b.equals("")) {
+			return a;
+		}
+		if (a.equals("")) {
+			return b;
+		}
+		if (a.charAt(a.length() - 1) == b.charAt(0)) {
+			return a.concat(b.substring(1));
+		} else {
+			return a.concat(b);
+		}
 	}
 
 	/*
@@ -397,7 +444,8 @@ public final class String1 {
 	 * lastTwo("ab") → "ba"
 	 */
 	public String lastTwo(String str) {
-		return null;
+		return (str.length() < 2 ? str : str.substring(0, str.length() - 2)
+				+ str.charAt(str.length() - 1) + str.charAt(str.length() - 2));
 	}
 
 	/*
@@ -413,7 +461,13 @@ public final class String1 {
 	 * seeColor("blueTimes") → "blue"
 	 */
 	public String seeColor(String str) {
-		return null;
+		if (str.startsWith("red")) {
+			return "red";
+		}
+		if (str.startsWith("blue")) {
+			return "blue";
+		}
+		return "";
 	}
 
 	/*
@@ -429,7 +483,14 @@ public final class String1 {
 	 * frontAgain("ed") → true
 	 */
 	public boolean frontAgain(String str) {
-		return false;
+		if (str.length() == 2) {
+			return true;
+		}
+		if (str.length() < 2) {
+			return false;
+		}
+		return (str.substring(0, 2).equals(str.substring(str.length() - 2,
+				str.length())));
 	}
 
 	/*
@@ -447,7 +508,9 @@ public final class String1 {
 	 * minCat("java", "Hello") → "javaello"
 	 */
 	public String minCat(String a, String b) {
-		return null;
+		int max = a.length() < b.length() ? a.length() : b.length();
+		return a.substring(a.length() - max, a.length())
+				+ b.substring(b.length() - max, b.length());
 	}
 
 	/*
@@ -464,7 +527,9 @@ public final class String1 {
 	 * extraFront("H") → "HHH"
 	 */
 	public String extraFront(String str) {
-		return null;
+		int cha = str.length() < 2 ? str.length() : 2;
+		return str.substring(0, cha) + str.substring(0, cha)
+				+ str.substring(0, cha);
 	}
 
 	/*
@@ -482,7 +547,13 @@ public final class String1 {
 	 * without2("Hi") → ""
 	 */
 	public String without2(String str) {
-		return null;
+		if (str.length() < 2) {
+			return str;
+		}
+		if (str.endsWith(str.substring(0, 2))) {
+			return str.substring(2);
+		}
+		return str;
 	}
 
 	/*
@@ -499,7 +570,15 @@ public final class String1 {
 	 * deFront("away") → "aay"
 	 */
 	public String deFront(String str) {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == 'a') {
+			sb.append('a');
+		}
+		if (str.charAt(1) == 'b') {
+			sb.append('b');
+		}
+		sb.append(str.substring(2));
+		return sb.toString();
 	}
 
 	/*
@@ -519,7 +598,31 @@ public final class String1 {
 	 * startWord("hippo", "i") → "h"
 	 */
 	public String startWord(String str, String word) {
-		return null;
+		if (str.startsWith(word)) {
+			return word;
+		}
+		if (word.length() == 1) {
+			if (str.length() == 0) {
+				return "";
+			}
+			return str.charAt(0) + "";
+		}
+		if (str.length() < 2) {
+			return "";
+		}
+		if (str.substring(1).startsWith(word)) {
+			return str.substring(0, word.length());
+		}
+		if (str.substring(1).startsWith(word.substring(1))) {
+			return str.substring(0, word.length());
+		}
+		if (str.startsWith(word.substring(1))) {
+			return str.substring(0, word.length());
+		}
+		if (str.startsWith(word)) {
+			return str.substring(0, 2);
+		}
+		return "";
 	}
 
 	/*
@@ -535,7 +638,20 @@ public final class String1 {
 	 * withoutX("Hxix") → "Hxi"
 	 */
 	public String withoutX(String str) {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		if (str.length() == 0) {
+			return str;
+		}
+		if (str.charAt(0) != 'x') {
+			sb.append(str.charAt(0));
+		}
+		if (str.length() > 1) {
+			sb.append(str.substring(1, str.length() - 1));
+		}
+		if (str.charAt(str.length() - 1) != 'x') {
+			sb.append(str.charAt(str.length() - 1));
+		}
+		return sb.toString();
 	}
 
 	/*
@@ -552,6 +668,18 @@ public final class String1 {
 	 * withoutX2("Hi") → "Hi"
 	 */
 	public String withoutX2(String str) {
-		return null;
+		if (str.length() == 0) {
+			return "";
+		}
+		if (str.startsWith("xx")) {
+			return str.substring(2);
+		}
+		if (str.startsWith("x")) {
+			return str.substring(1);
+		}
+		if (str.charAt(1) == 'x') {
+			return str.charAt(0) + str.substring(2);
+		}
+		return str;
 	}
 }

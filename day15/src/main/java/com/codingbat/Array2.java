@@ -14,7 +14,11 @@ public final class Array2 {
 	 * countEvens({1, 3, 5}) → 0
 	 */
 	public int countEvens(int[] nums) {
-		return 0;
+		int contor = 0;
+		for (int c : nums) {
+			contor += ((c % 2 == 0) ? 1 : 0);
+		}
+		return contor;
 	}
 
 	/*
@@ -32,7 +36,13 @@ public final class Array2 {
 	 * bigDiff({2, 10, 7, 2}) → 8
 	 */
 	public int bigDiff(int[] nums) {
-		return 0;
+		int max = nums[0];
+		int min = nums[0];
+		for (int c : nums) {
+			max = (max < c) ? c : max;
+			min = (min > c) ? c : min;
+		}
+		return max - min;
 	}
 
 	/*
@@ -52,7 +62,15 @@ public final class Array2 {
 	 * centeredAverage({-10, -4, -2, -4, -2, 0}) → -3
 	 */
 	public int centeredAverage(int[] nums) {
-		return 0;
+		int max = nums[0];
+		int min = nums[0];
+		int sum = 0;
+		for (int c : nums) {
+			max = (max < c) ? c : max;
+			min = (min > c) ? c : min;
+			sum += c;
+		}
+		return (sum - min - max) / (nums.length - 2);
 	}
 
 	/*
@@ -69,7 +87,13 @@ public final class Array2 {
 	 * sum13({1, 2, 2, 1, 13}) → 6
 	 */
 	public int sum13(int[] nums) {
-		return 0;
+		boolean nextUnlucky = false;
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += (nextUnlucky || nums[i] == 13 ? 0 : nums[i]);
+			nextUnlucky = (nums[i] == 13);
+		}
+		return sum;
 	}
 
 	/*
@@ -86,7 +110,16 @@ public final class Array2 {
 	 * sum67({1, 1, 6, 7, 2}) → 4
 	 */
 	public int sum67(int[] nums) {
-		return 0;
+		boolean curse = false;
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			curse = curse || nums[i] == 6;
+			sum += (curse ? 0 : nums[i]);
+			if (nums[i] == 7) {
+				curse = false;
+			}
+		}
+		return sum;
 	}
 
 	/*
@@ -102,6 +135,11 @@ public final class Array2 {
 	 * has22({2, 1, 2}) → false
 	 */
 	public boolean has22(int[] nums) {
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i - 1] == 2 && nums[i] == 2) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -118,7 +156,12 @@ public final class Array2 {
 	 * lucky13({1, 2, 4}) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1 || nums[i] == 3) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -134,7 +177,18 @@ public final class Array2 {
 	 * sum28({1, 2, 3, 4}) → false
 	 */
 	public boolean sum28(int[] nums) {
-		return false;
+		int instances = 0;
+		for (int i = 0; i < nums.length; i++) {
+
+			instances += (nums[i] == 2) ? 1 : 0;
+			if (instances > 4) {
+				return false;
+			}
+		}
+		if (instances < 4) {
+			return false;
+		}
+		return true;
 	}
 
 	/*
@@ -150,7 +204,13 @@ public final class Array2 {
 	 * more14({1, 1}) → true
 	 */
 	public boolean more14(int[] nums) {
-		return false;
+		int no1 = 0;
+		int no4 = 0;
+		for (int i = 0; i < nums.length; i++) {
+			no1 += (nums[i] == 1) ? 1 : 0;
+			no4 += (nums[i] == 4) ? 1 : 0;
+		}
+		return (no1 > no4);
 	}
 
 	/*
@@ -165,7 +225,12 @@ public final class Array2 {
 	 * only14({1, 1}) → true
 	 */
 	public boolean only14(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if (!(nums[i] == 1 || nums[i] == 4)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -181,7 +246,14 @@ public final class Array2 {
 	 * no14({2, 3, 4}) → true
 	 */
 	public boolean no14(int[] nums) {
-		return false;
+		boolean has1 = false;
+		boolean has4 = false;
+		for (int i = 0; i < nums.length; i++) {
+			has1 = (nums[i] == 1) ? true : has1;
+			has4 = (nums[i] == 4) ? true : has4;
+		}
+
+		return (!has1 || !has4);
 	}
 
 	/*
@@ -198,7 +270,21 @@ public final class Array2 {
 	 * isEverywhere({1, 2, 1, 3, 4}, 1) → false
 	 */
 	public boolean isEverywhere(int[] nums, int val) {
-		return false;
+		int startingLeg;
+		if (nums.length == 0) {
+			return true;
+		}
+		if (nums[0] == val) {
+			startingLeg = 0;
+		} else {
+			startingLeg = 1;
+		}
+		for (int i = startingLeg; i < nums.length; i += 2) {
+			if (nums[i] != val) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -214,14 +300,20 @@ public final class Array2 {
 	 * either24({4, 4, 1, 2, 2}) → false
 	 */
 	public boolean either24(int[] nums) {
-		return false;
+		boolean near2 = false;
+		boolean near4 = false;
+		for (int i = 1; i < nums.length; i++) {
+			near2 = (nums[i] == nums[i - 1] && nums[i - 1] == 2) ? true : near2;
+			near4 = (nums[i] == nums[i - 1] && nums[i - 1] == 4) ? true : near4;
+		}
+		return near2 ^ near4;
 	}
 
 	/*
 	 * http://codingbat.com/prob/p136254
 	 * 
 	 * Given arrays nums1 and nums2 of the same length, for every element in
-	 * nums1, consider the corresponding element in nums2 (at the same index).
+	 * nums1, consider Fthe corresponding element in nums2 (at the same index).
 	 * Return the count of the number of times that the two elements differ by 2
 	 * or less, but are not equal.
 	 * 
@@ -232,7 +324,12 @@ public final class Array2 {
 	 * matchUp({1, 2, 3}, {2, 3, 3}) → 2
 	 */
 	public int matchUp(int[] nums1, int[] nums2) {
-		return 0;
+		int match = 0;
+		for (int i = 0; i < nums1.length; i++) {
+			match += (nums1[i] != nums2[i] && Math.abs(nums1[i] - nums2[i]) <= 2) ? 1
+					: 0;
+		}
+		return match;
 	}
 
 	/*
@@ -249,6 +346,23 @@ public final class Array2 {
 	 * has77({1, 7, 1, 1, 7}) → false
 	 */
 	public boolean has77(int[] nums) {
+		if (nums.length < 2) {
+			return false;
+		}
+		if (nums[0] == 7 && nums[1] == 7) {
+			return true;
+		}
+		for (int i = 2; i < nums.length; i++) {
+			if (nums[i] == 7) {
+				if (nums[i - 1] == 7) {
+					return true;
+				} else {
+					if (nums[i - 2] == 7) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 
@@ -265,6 +379,13 @@ public final class Array2 {
 	 * has12({3, 1, 4, 5, 2}) → true
 	 */
 	public boolean has12(int[] nums) {
+		boolean found1 = false;
+		for (int i = 0; i < nums.length; i++) {
+			found1 = (nums[i] == 1) ? true : found1;
+			if (found1 && nums[i] == 2) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -281,6 +402,12 @@ public final class Array2 {
 	 * modThree({2, 4, 2, 5}) → true
 	 */
 	public boolean modThree(int[] nums) {
+		for (int i = 2; i < nums.length; i++) {
+			if ((nums[i - 2] % 2 == nums[i - 1] % 2)
+					&& (nums[i - 1] % 2 == nums[i] % 2)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -297,7 +424,28 @@ public final class Array2 {
 	 * haveThree({3, 4, 3, 3, 4}) → false
 	 */
 	public boolean haveThree(int[] nums) {
-		return false;
+		if (nums.length < 5) {
+			return false;
+		}
+		int instances = 0;
+		if (nums[1] == 3 && nums[0] == 3) {
+			return false;
+		}
+		if (nums[1] == 3 || nums[0] == 3) {
+			instances++;
+		}
+		for (int i = 2; i < nums.length; i++) {
+			if (nums[i] == 3) {
+				instances++;
+				if (nums[i - 1] == 3 || (nums[i - 1] == 3 && nums[i - 2] == 3)) {
+					return false;
+				}
+				if (instances > 3) {
+					return false;
+				}
+			}
+		}
+		return (instances == 3);
 	}
 
 	/*
@@ -313,7 +461,29 @@ public final class Array2 {
 	 * twoTwo({2, 2, 4, 2}) → false
 	 */
 	public boolean twoTwo(int[] nums) {
-		return false;
+		if (nums.length == 1) {
+			if (nums[0] == 2) {
+				return false;
+			}
+			return true;
+		}
+		if (nums.length == 0) {
+			return true;
+		}
+		if (nums[0] == 2 && nums[1] != 2) {
+			return false;
+		}
+		if (nums[nums.length - 1] == 2 && nums[nums.length - 2] != 2) {
+			return false;
+		}
+		for (int i = 1; i < nums.length - 1; i++) {
+			if (nums[i] == 2 && (!(nums[i - 1] == 2 || nums[i + 1] == 2))) {
+				return false;
+			}
+		}
+
+		return true;
+
 	}
 
 	/*
@@ -331,7 +501,12 @@ public final class Array2 {
 	 * sameEnds({5, 6, 45, 99, 13, 5, 6}, 3) → false
 	 */
 	public boolean sameEnds(int[] nums, int len) {
-		return false;
+		for (int i = 0; i < len; i++) {
+			if (nums[i] != nums[nums.length - len + i]) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -347,6 +522,11 @@ public final class Array2 {
 	 * tripleUp({1, 2, 4}) → false
 	 */
 	public boolean tripleUp(int[] nums) {
+		for (int i = 2; i < nums.length; i++) {
+			if (nums[i] == nums[i - 1] + 1 && nums[i] == nums[i - 2] + 2) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -364,7 +544,13 @@ public final class Array2 {
 	 * shiftLeft({1}) → {1}
 	 */
 	public int[] shiftLeft(int[] nums) {
-		return null;
+		if (nums.length < 2) {
+			return nums;
+		}
+		int[] tempo = new int[nums.length];
+		System.arraycopy(nums, 1, tempo, 0, nums.length - 1);
+		tempo[nums.length - 1] = nums[0];
+		return tempo;
 	}
 
 	/*
@@ -381,7 +567,17 @@ public final class Array2 {
 	 * tenRun({10, 1, 9, 20}) → {10, 10, 10, 20}
 	 */
 	public int[] tenRun(int[] nums) {
-		return null;
+		boolean found2 = false;
+		int toChange = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] % 10 == 0) {
+				toChange = nums[i];
+				found2 = true;
+			} else {
+				nums[i] = (found2) ? toChange : nums[i];
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -399,7 +595,15 @@ public final class Array2 {
 	 * pre4({1, 4, 4}) → {1}
 	 */
 	public int[] pre4(int[] nums) {
-		return null;
+		int i;
+		for (i = 0; i < nums.length; i++) {
+			if (nums[i] == 4) {
+				break;
+			}
+		}
+		int[] pre = new int[i];
+		System.arraycopy(nums, 0, pre, 0, i);
+		return pre;
 	}
 
 	/*
@@ -417,7 +621,17 @@ public final class Array2 {
 	 * post4({4, 4, 1, 2, 3}) → {1, 2, 3}
 	 */
 	public int[] post4(int[] nums) {
-		return null;
+		int i;
+		for (i = nums.length - 1; i >= 0; i--) {
+			if (nums[i] == 4) {
+				break;
+			}
+		}
+		int[] pre = new int[nums.length - i - 1];
+		for (int j = i + 1; j < nums.length; j++) {
+			pre[j - i - 1] = nums[j];
+		}
+		return pre;
 	}
 
 	/*
@@ -435,7 +649,15 @@ public final class Array2 {
 	 * notAlone({3, 4}, 3) → {3, 4}
 	 */
 	public int[] notAlone(int[] nums, int val) {
-		return null;
+		for (int i = 1; i < nums.length - 1; i++) {
+			if (nums[i] != val) {
+				continue;
+			}
+			if (nums[i - 1] != nums[i] && nums[i + 1] != nums[i]) {
+				nums[i] = Math.max(nums[i - 1], nums[i + 1]);
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -454,7 +676,19 @@ public final class Array2 {
 	 * zeroFront({1, 0}) → {0, 1}
 	 */
 	public int[] zeroFront(int[] nums) {
-		return null;
+		int normal = 0;
+		int zero = 0;
+		int aux;
+		while (zero < nums.length) {
+			if (nums[zero] == 0) {
+				aux = nums[normal];
+				nums[normal] = nums[zero];
+				nums[zero] = aux;
+				normal++;
+			}
+			zero++;
+		}
+		return nums;
 	}
 
 	/*
@@ -473,7 +707,15 @@ public final class Array2 {
 	 * withoutTen({1, 99, 10}) → {1, 99, 0}
 	 */
 	public int[] withoutTen(int[] nums) {
-		return null;
+		int[] rez = new int[nums.length];
+		int lastpos = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 10) {
+				rez[lastpos] = nums[i];
+				lastpos++;
+			}
+		}
+		return rez;
 	}
 
 	/*
@@ -490,8 +732,21 @@ public final class Array2 {
 	 * 
 	 * zeroMax({0, 1, 0}) → {1, 1, 0}
 	 */
+	private int maxOdd(int[] array, int liminf) {
+		int max = 0;
+		for (int i = liminf; i < array.length; i++) {
+			max = (max < array[i] && (array[i] % 2 != 0)) ? array[i] : max;
+		}
+		return max;
+	}
+
 	public int[] zeroMax(int[] nums) {
-		return null;
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (nums[i] == 0) {
+				nums[i] = maxOdd(nums, i + 1);
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -509,7 +764,19 @@ public final class Array2 {
 	 * evenOdd({2, 2, 2}) → {2, 2, 2}
 	 */
 	public int[] evenOdd(int[] nums) {
-		return null;
+		int normal = 0;
+		int zero = 0;
+		int aux;
+		while (zero < nums.length) {
+			if (nums[zero] % 2 == 0) {
+				aux = nums[normal];
+				nums[normal] = nums[zero];
+				nums[zero] = aux;
+				normal++;
+			}
+			zero++;
+		}
+		return nums;
 	}
 
 }
