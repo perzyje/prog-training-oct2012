@@ -1,8 +1,5 @@
 package com.codingbat;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public final class String2 {
 	/*
 	 * http://codingbat.com/prob/p165312
@@ -17,12 +14,7 @@ public final class String2 {
 	 * doubleChar("Hi-There") → "HHii--TThheerree"
 	 */
 	public String doubleChar(String str) {
-		StringBuilder sb = new StringBuilder();
-		char[] ch = str.toCharArray();
-		for (char c : ch) {
-			sb.append(c + "" + c);
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -37,20 +29,8 @@ public final class String2 {
 	 * 
 	 * countHi("hihi") → 2
 	 */
-
-	private int noInstances(String searchField, String searchElement) {
-		int pos = 0;
-		int postemp = 0;
-		int contor = 0;
-		while ((postemp = searchField.indexOf(searchElement, pos) + 1) != 0) {
-			pos = postemp;
-			contor++;
-		}
-		return contor;
-	}
-
 	public int countHi(String str) {
-		return noInstances(str, "hi");
+		return 0;
 	}
 
 	/*
@@ -66,7 +46,7 @@ public final class String2 {
 	 * catDog("1cat1cadodog") → true
 	 */
 	public boolean catDog(String str) {
-		return (noInstances(str, "cat") == noInstances(str, "dog"));
+		return false;
 	}
 
 	/*
@@ -83,19 +63,7 @@ public final class String2 {
 	 * countCode("cozexxcope") → 2
 	 */
 	public int countCode(String str) {
-		int a;
-		a = str.indexOf("co");
-		if (a == -1) {
-			return 0;
-		}
-		if (a == str.length() - 3) {
-			return 0;
-		}
-		if (str.indexOf('e', a) == a + 3) {
-			return countCode(str.substring(a + 3)) + 1;
-		} else {
-			return countCode(str.substring(a + 3));
-		}
+		return 0;
 	}
 
 	/*
@@ -113,8 +81,7 @@ public final class String2 {
 	 * endOther("abc", "abXabc") → true
 	 */
 	public boolean endOther(String a, String b) {
-		return a.toLowerCase().endsWith(b.toLowerCase())
-				|| b.toLowerCase().endsWith(a.toLowerCase());
+		return false;
 	}
 
 	/*
@@ -131,11 +98,7 @@ public final class String2 {
 	 * xyzThere("xyz.abc") → true
 	 */
 	public boolean xyzThere(String str) {
-		String xyz = "xyz";
-		return str.indexOf(xyz) == 0
-				|| ((str.indexOf(xyz) != -1) && (str
-						.charAt(str.indexOf(xyz) - 1) != '.' || xyzThere(str
-						.substring(str.indexOf(xyz) + 1))));
+		return false;
 	}
 
 	/*
@@ -151,10 +114,7 @@ public final class String2 {
 	 * bobThere("bac") → false
 	 */
 	public boolean bobThere(String str) {
-		Pattern pattern = Pattern.compile("b.b");
-		Matcher matcher = pattern.matcher(str);
-		return matcher.find();
-
+		return false;
 	}
 
 	/*
@@ -172,15 +132,7 @@ public final class String2 {
 	 * xyBalance("yaaxbb") → false
 	 */
 	public boolean xyBalance(String str) {
-		int pos = 0;
-		int postemp = 0;
-		while ((postemp = str.indexOf('x', pos) + 1) != 0) {
-			pos = postemp;
-			if (str.indexOf('y', pos) == -1) {
-				return false;
-			}
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -197,19 +149,7 @@ public final class String2 {
 	 * mixString("xxxx", "There") → "xTxhxexre"
 	 */
 	public String mixString(String a, String b) {
-		StringBuilder sb = new StringBuilder();
-		int max = (a.length() < b.length() ? a.length() : b.length());
-		for (int i = 0; i < max; i++) {
-			sb.append(a.charAt(i));
-			sb.append(b.charAt(i));
-		}
-		for (int i = max; i < a.length(); i++) {
-			sb.append(a.charAt(i));
-		}
-		for (int i = max; i < b.length(); i++) {
-			sb.append(b.charAt(i));
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -226,11 +166,7 @@ public final class String2 {
 	 * repeatEnd("Hello", 1) → "o"
 	 */
 	public String repeatEnd(String str, int n) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < n; i++) {
-			sb.append(str.substring(str.length() - n));
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -248,11 +184,7 @@ public final class String2 {
 	 * repeatFront("Ice Cream", 2) → "IcI"
 	 */
 	public String repeatFront(String str, int n) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = n; i > 0; i--) {
-			sb.append(str.substring(0, i));
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -268,16 +200,7 @@ public final class String2 {
 	 * repeatSeparator("This", "And", 1) → "This"
 	 */
 	public String repeatSeparator(String word, String sep, int count) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < count - 1; i++) {
-			sb.append(word);
-			sb.append(sep);
-		}
-		if (count > 0) {
-			sb.append(word);
-		}
-
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -295,7 +218,7 @@ public final class String2 {
 	 * prefixAgain("abXYabc", 3) → false
 	 */
 	public boolean prefixAgain(String str, int n) {
-		return str.lastIndexOf(str.substring(0, n)) != 0;
+		return false;
 	}
 
 	/*
@@ -312,15 +235,6 @@ public final class String2 {
 	 * xyzMiddle("AxyzBBB") → false
 	 */
 	public boolean xyzMiddle(String str) {
-		int indexStart = 0;
-		int oldIndexStart = 0;
-		while ((indexStart = str.indexOf("xyz", oldIndexStart)) != -1) {
-			if (Math.abs(str.length() - 3 - indexStart * 2) <= 1) {
-				return true;
-			} else {
-				oldIndexStart++;
-			}
-		}
 		return false;
 	}
 
@@ -339,13 +253,7 @@ public final class String2 {
 	 * getSandwich("xxbreadyy") → ""
 	 */
 	public String getSandwich(String str) {
-		String bread = "bread";
-		if (str.indexOf(bread) == str.lastIndexOf(bread)) {
-			return "";
-		} else {
-			return str
-					.substring(str.indexOf(bread) + 5, str.lastIndexOf(bread));
-		}
+		return null;
 	}
 
 	/*
@@ -361,14 +269,7 @@ public final class String2 {
 	 * sameStarChar("*xa*az") → true
 	 */
 	public boolean sameStarChar(String str) {
-		int i;
-		char[] ch = str.toCharArray();
-		for (i = 1; i < str.length() - 1; i++) {
-			if ((ch[i] == '*') && (ch[i - 1] != ch[i + 1])) {
-				return false;
-			}
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -385,7 +286,7 @@ public final class String2 {
 	 * zipZap("zzzopzop") → "zzzpzp"
 	 */
 	public String zipZap(String str) {
-		return (str.replaceAll("z.p", "zp"));
+		return null;
 	}
 
 	/*
@@ -402,35 +303,7 @@ public final class String2 {
 	 * starOut("sm*eilly") → "silly"
 	 */
 	public String starOut(String str) {
-		StringBuilder sb = new StringBuilder();
-		char[] ch = str.toCharArray();
-		for (int i = 0; i < ch.length; i++) {
-
-			if (ch[i] == '*') {
-
-				try {
-
-					ch[i - 1] = 0;
-				} catch (Exception e) {
-
-				}
-				try {
-					if (ch[i + 1] != '*') {
-						ch[i + 1] = 0;
-					}
-
-				} catch (Exception e) {
-
-				}
-
-			}
-		}
-		for (int i = 0; i < ch.length; i++) {
-			if (ch[i] != 0 && ch[i] != '*') {
-				sb.append(ch[i]);
-			}
-		}
-		return sb.toString();
+		return null;
 	}
 
 	/*
@@ -447,26 +320,7 @@ public final class String2 {
 	 * plusOut("12xy34xyabcxy", "xy") → "++xy++xy+++xy"
 	 */
 	public String plusOut(String str, String word) {
-
-		StringBuilder sb = new StringBuilder();
-		if (word.equals("++")) {
-			for (int j = 0; j < str.length(); j++) {
-				sb.append("+");
-			}
-			return sb.toString();
-		}
-		String[] st = str.split(word);
-		for (int i = 0; i < st.length; i++) {
-			for (int j = 0; j < st[i].length(); j++) {
-				sb.append("+");
-			}
-			if (i < st.length - 1 || str.endsWith(word)) {
-				sb.append(word);
-			}
-
-		}
-		return sb.toString();
-
+		return null;
 	}
 
 	/*
@@ -484,23 +338,7 @@ public final class String2 {
 	 * wordEnds("XY1XY", "XY") → "11"
 	 */
 	public String wordEnds(String str, String word) {
-		Pattern pattern = Pattern.compile(word);
-		Matcher matcher = pattern.matcher(str);
-		StringBuilder sb = new StringBuilder();
-		while (matcher.find()) {
-			try {
-				sb.append(str.charAt(matcher.start() - 1));
-			} catch (Exception e) {
-
-			}
-			try {
-				sb.append(str.charAt(matcher.start() + word.length()));
-			} catch (Exception e) {
-
-			}
-
-		}
-		return sb.toString();
+		return null;
 	}
 
 }

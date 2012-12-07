@@ -1,7 +1,5 @@
 package com.codingbat;
 
-import java.util.Arrays;
-
 public final class Logic2 {
 	/*
 	 * http://codingbat.com/prob/p183562
@@ -19,8 +17,7 @@ public final class Logic2 {
 	 * makeBricks(3, 2, 10) → true
 	 */
 	public boolean makeBricks(int small, int big, int goal) {
-		int big1 = (goal / 5 > big ? big : goal / 5);
-		return ((goal - big1 * 5) <= small);
+		return false;
 	}
 
 	/*
@@ -37,19 +34,7 @@ public final class Logic2 {
 	 * loneSum(3, 3, 3) → 0
 	 */
 	public int loneSum(int a, int b, int c) {
-		if (a == b && b == c) {
-			return 0;
-		}
-		if (a == b) {
-			return c;
-		}
-		if (b == c) {
-			return a;
-		}
-		if (a == c) {
-			return b;
-		}
-		return a + b + c;
+		return 0;
 	}
 
 	/*
@@ -67,16 +52,7 @@ public final class Logic2 {
 	 * luckySum(1, 13, 3) → 1
 	 */
 	public int luckySum(int a, int b, int c) {
-		if (a == 13) {
-			return 0;
-		}
-		if (b == 13) {
-			return a;
-		}
-		if (c == 13) {
-			return a + b;
-		}
-		return a + b + c;
+		return 0;
 	}
 
 	/*
@@ -96,20 +72,12 @@ public final class Logic2 {
 	 * 
 	 * noTeenSum(2, 1, 14) → 3
 	 */
-
-	private int fixTeen(int n) {
-		int ret = n;
-		if (n >= 13 && n <= 19) {
-			ret = 0;
-		}
-		if (n == 15 || n == 16) {
-			ret = n;
-		}
-		return ret;
+	public int noTeenSum(int a, int b, int c) {
+		return 0;
 	}
 
-	public int noTeenSum(int a, int b, int c) {
-		return fixTeen(a) + fixTeen(b) + fixTeen(c);
+	public int fixTeen(int n) {
+		return 0;
 	}
 
 	/*
@@ -131,11 +99,11 @@ public final class Logic2 {
 	 * roundSum(6, 4, 4) → 10
 	 */
 	public int roundSum(int a, int b, int c) {
-		return round10(a) + round10(b) + round10(c);
+		return 0;
 	}
 
 	public int round10(int num) {
-		return (num / 10 + (num / 5) % 2) * 10;
+		return 0;
 	}
 
 	/*
@@ -153,21 +121,7 @@ public final class Logic2 {
 	 * closeFar(4, 1, 3) → true
 	 */
 	public boolean closeFar(int a, int b, int c) {
-		if (Math.abs(a - b) <= 1) {
-			if (Math.abs(a - c) >= 2 && Math.abs(b - c) >= 2) {
-				return true;
-			}
-			return false;
-		} else {
-			if (Math.abs(a - c) <= 1) {
-				if (Math.abs(a - b) >= 2 && Math.abs(c - b) >= 2) {
-					return true;
-				}
-				return false;
-			}
-			return false;
-		}
-
+		return false;
 	}
 
 	/*
@@ -183,20 +137,7 @@ public final class Logic2 {
 	 * blackjack(19, 22) → 19
 	 */
 	public int blackjack(int a, int b) {
-		if (a > 21) {
-			if (b > 21) {
-				return 0;
-			} else {
-				return b;
-			}
-		} else {
-			if (b > 21) {
-				return a;
-			} else {
-				return (a > b ? a : b);
-			}
-		}
-
+		return 0;
 	}
 
 	/*
@@ -214,10 +155,7 @@ public final class Logic2 {
 	 * evenlySpaced(4, 6, 3) → false
 	 */
 	public boolean evenlySpaced(int a, int b, int c) {
-		int[] vec = { a, b, c };
-		Arrays.sort(vec);
-		return (vec[1] - vec[0] == vec[2] - vec[1]);
-
+		return false;
 	}
 
 	/*
@@ -235,8 +173,7 @@ public final class Logic2 {
 	 * makeChocolate(4, 1, 7) → 2
 	 */
 	public int makeChocolate(int small, int big, int goal) {
-		int big1 = (goal / 5 > big ? big : goal / 5);
-		return ((goal - big1 * 5) <= small) ? (goal - big1 * 5) : -1;
+		return 0;
 	}
 
 }

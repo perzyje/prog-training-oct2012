@@ -1,7 +1,5 @@
 package com.codingbat;
 
-import java.util.regex.*;
-
 public final class String3 {
 	/*
 	 * http://codingbat.com/prob/p199171
@@ -19,19 +17,7 @@ public final class String3 {
 	 * countYZ("day fyyyz") → 2
 	 */
 	public int countYZ(String str) {
-		Pattern pattern = Pattern.compile("[yY][\\W|\\d]|[yY]$");
-		Matcher matcher = pattern.matcher(str);
-		int count = 0;
-		while (matcher.find()) {
-			count++;
-		}
-		pattern = Pattern.compile("[zZ][\\W|\\d]|[zZ]$");
-		matcher = pattern.matcher(str);
-		while (matcher.find()) {
-			count++;
-		}
-		return count;
-
+		return 0;
 	}
 
 	/*
@@ -50,9 +36,7 @@ public final class String3 {
 	 * withoutString("Hello there", "x") → "Hello there"
 	 */
 	public String withoutString(String base, String remove) {
-		Pattern pattern = Pattern.compile(remove, Pattern.CASE_INSENSITIVE);
-		Matcher matcher = pattern.matcher(base);
-		return matcher.replaceAll("");
+		return null;
 	}
 
 	/*
@@ -68,20 +52,8 @@ public final class String3 {
 	 * 
 	 * equalIsNot("noisxxnotyynotxisi") → true
 	 */
-
-	private int noInstances(String toSearch, String where) {
-		Pattern pattern = Pattern.compile(toSearch);
-		Matcher matcher = pattern.matcher(where);
-		int count = 0;
-		while (matcher.find()) {
-			count++;
-		}
-		return count;
-	}
-
 	public boolean equalIsNot(String str) {
-
-		return (noInstances("is", str) == noInstances("not", str));
+		return false;
 	}
 
 	/*
@@ -98,14 +70,7 @@ public final class String3 {
 	 * gHappy("xxggyygxx") → false
 	 */
 	public boolean gHappy(String str) {
-		Pattern pattern = Pattern.compile("gg+");
-		Matcher matcher = pattern.matcher(str);
-		matcher.replaceAll("");
-		matcher.usePattern(Pattern.compile("g"));
-		if (matcher.find()) {
-			return false;
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -122,14 +87,7 @@ public final class String3 {
 	 * countTriple("a") → 0
 	 */
 	public int countTriple(String str) {
-		char[] ch = str.toCharArray();
-		int contor = 0;
-		for (int i = 2; i < ch.length; i++) {
-			if (ch[i] == ch[i - 1] && ch[i - 1] == ch[i - 2]) {
-				contor++;
-			}
-		}
-		return contor;
+		return 0;
 	}
 
 	/*
@@ -148,13 +106,7 @@ public final class String3 {
 	 * sumDigits("Chocolate") → 0
 	 */
 	public int sumDigits(String str) {
-		Pattern pattern = Pattern.compile("[0-9]");
-		Matcher matcher = pattern.matcher(str);
-		int sum = 0;
-		while (matcher.find()) {
-			sum += Integer.parseInt(matcher.group());
-		}
-		return sum;
+		return 0;
 	}
 
 	/*
@@ -171,13 +123,7 @@ public final class String3 {
 	 * sameEnds("xxx") → "x"
 	 */
 	public String sameEnds(String string) {
-		Pattern pattern = Pattern.compile("^(.*).*\\1$");
-		Matcher matcher = pattern.matcher(string);
-
-		matcher.find();
-
-		return matcher.group(1);
-
+		return null;
 	}
 
 	/*
@@ -196,22 +142,7 @@ public final class String3 {
 	 * mirrorEnds("aba") → "aba"
 	 */
 	public String mirrorEnds(String string) {
-
-		char[] ch = string.toCharArray();
-		int i = 0;
-		while (i < ch.length) {
-			if (ch[i] != ch[ch.length - 1 - i]) {
-				break;
-			} else {
-				i++;
-			}
-		}
-		StringBuilder sb = new StringBuilder();
-		for (int j = 0; j < i; j++) {
-			sb.append(ch[j]);
-		}
-		return sb.toString();
-
+		return null;
 	}
 
 	/*
@@ -227,14 +158,7 @@ public final class String3 {
 	 * maxBlock("") → 0
 	 */
 	public int maxBlock(String str) {
-		Pattern pattern = Pattern.compile("([a-zA-Z0-9])\\1*");
-		Matcher matcher = pattern.matcher(str);
-		int max = 0;
-		while (matcher.find()) {
-			max = (max < matcher.group().length() ? matcher.group().length()
-					: max);
-		}
-		return max;
+		return 0;
 	}
 
 	/*
@@ -253,13 +177,7 @@ public final class String3 {
 	 * sumNumbers("7 11") → 18
 	 */
 	public int sumNumbers(String str) {
-		Pattern pattern = Pattern.compile("[0-9]+");
-		Matcher matcher = pattern.matcher(str);
-		int sum = 0;
-		while (matcher.find()) {
-			sum += Integer.parseInt(matcher.group());
-		}
-		return sum;
+		return 0;
 	}
 
 	/*
@@ -278,30 +196,7 @@ public final class String3 {
 	 * notReplace("This is right") → "This is not right"
 	 */
 	public String notReplace(String str) {
-		StringBuilder sb = new StringBuilder();
-		char[] ch = str.toCharArray();
-		int i = 0;
-		while (i < ch.length) {
-			if (ch[i] == 'i' && ch[i + 1] == 's') {
-				if (i > 0 && Character.isLetter(ch[i - 1])) {
-					sb.append(ch[i]);
-					i++;
-					continue;
-				} else if (i + 2 < ch.length && Character.isLetter(ch[i + 2])) {
-					sb.append(ch[i]);
-					i++;
-					continue;
-				} else {
-					sb.append("is not");
-					i += 2;
-				}
-
-			} else {
-				sb.append(ch[i]);
-				i++;
-			}
-		}
-		return sb.toString();
+		return null;
 	}
 
 }

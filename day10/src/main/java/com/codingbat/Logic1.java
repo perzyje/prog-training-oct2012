@@ -17,7 +17,7 @@ public final class Logic1 {
 	 * cigarParty(70, true) → true
 	 */
 	public boolean cigarParty(int cigars, boolean isWeekend) {
-		return ((isWeekend && cigars >= 40) || ((cigars >= 40) && (cigars <= 60)));
+		return false;
 	}
 
 	/*
@@ -38,14 +38,7 @@ public final class Logic1 {
 	 * dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
-		int res = 1;
-		if (you >= 8 || date >= 8) {
-			res = 2;
-		}
-		if (you <= 2 || date <= 2) {
-			res = 0;
-		}
-		return res;
+		return 0;
 	}
 
 	/*
@@ -64,7 +57,7 @@ public final class Logic1 {
 	 * squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
-		return (temp >= 60 && (temp <= (isSummer ? 100 : 90)));
+		return false;
 	}
 
 	/*
@@ -84,14 +77,7 @@ public final class Logic1 {
 	 * caughtSpeeding(65, true) → 0
 	 */
 	public int caughtSpeeding(int speed, boolean isBirthday) {
-		int up = (isBirthday ? 5 : 0);
-		if (speed <= 60 + up) {
-			return 0;
-		}
-		if (speed <= 80 + up) {
-			return 1;
-		}
-		return 2;
+		return 0;
 	}
 
 	/*
@@ -107,7 +93,7 @@ public final class Logic1 {
 	 * sortaSum(10, 11) → 21
 	 */
 	public int sortaSum(int a, int b) {
-		return (a + b > 9) && (a + b < 20) ? 20 : (a + b);
+		return 0;
 	}
 
 	/*
@@ -127,10 +113,7 @@ public final class Logic1 {
 	 * alarmClock(0, false) → "10:00"
 	 */
 	public String alarmClock(int day, boolean vacation) {
-		if (!vacation) {
-			return (day == 6 || day == 0 ? "10:00" : "7:00");
-		}
-		return (day == 6 || day == 0 ? "off" : "10:00");
+		return null;
 	}
 
 	/*
@@ -147,12 +130,6 @@ public final class Logic1 {
 	 * love6(1, 5) → true
 	 */
 	public boolean love6(int a, int b) {
-		if (a == 6 || b == 6) {
-			return true;
-		}
-		if (a + b == 6 || Math.abs(a - b) == 6) {
-			return true;
-		}
 		return false;
 	}
 
@@ -170,8 +147,7 @@ public final class Logic1 {
 	 * in1To10(11, true) → true
 	 */
 	public boolean in1To10(int n, boolean outsideMode) {
-		return (outsideMode ? ((n <= 1 || n >= 10) ? true : false)
-				: ((n >= 1 && n <= 10) ? true : false));
+		return false;
 	}
 
 	/*
@@ -188,7 +164,7 @@ public final class Logic1 {
 	 * nearTen(19) → true
 	 */
 	public boolean nearTen(int num) {
-		return (num % 10 <= 2 || num % 10 >= 8);
+		return false;
 	}
 
 	/*
@@ -205,7 +181,7 @@ public final class Logic1 {
 	 * teenSum(13, 2) → 19
 	 */
 	public int teenSum(int a, int b) {
-		return (a > 12 && a < 20) || (b > 12 && b < 20) ? 19 : a + b;
+		return 0;
 	}
 
 	/*
@@ -222,7 +198,7 @@ public final class Logic1 {
 	 * answerCell(true, false, false) → false
 	 */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-		return (!isAsleep && ((isMorning && isMom) || (!isMorning)));
+		return false;
 	}
 
 	/*
@@ -242,13 +218,7 @@ public final class Logic1 {
 	 * teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		if (tea < 5 || candy < 5) {
-			return 0;
-		}
-		if (tea >= 2 * candy || candy >= 2 * tea) {
-			return 2;
-		}
-		return 1;
+		return 0;
 	}
 
 	/*
@@ -264,7 +234,7 @@ public final class Logic1 {
 	 * twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
-		return (a + b == c || a + c == b || b + c == a);
+		return false;
 	}
 
 	/*
@@ -281,7 +251,7 @@ public final class Logic1 {
 	 * inOrder(1, 1, 2, true) → true
 	 */
 	public boolean inOrder(int a, int b, int c, boolean bOk) {
-		return (c > b) && ((bOk ? a + 1 : b) > a);
+		return false;
 	}
 
 	/*
@@ -299,7 +269,7 @@ public final class Logic1 {
 	 * inOrderEqual(5, 5, 7, true) → true
 	 */
 	public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
-		return (!equalOk ? (a < b && b < c) : (a <= b && b <= c));
+		return false;
 	}
 
 	/*
@@ -316,7 +286,7 @@ public final class Logic1 {
 	 * lastDigit(23, 19, 3) → true
 	 */
 	public boolean lastDigit(int a, int b, int c) {
-		return (a % 10 == b % 10) || (b % 10 == c % 10) || (a % 10 == c % 10);
+		return false;
 	}
 
 	/*
@@ -332,15 +302,7 @@ public final class Logic1 {
 	 * lessBy10(11, 1, 7) → true
 	 */
 	public boolean lessBy10(int a, int b, int c) {
-		if ((a <= b - 10 || a <= c - 10))
-		{
-			return true;
-		}
-		if ((b <= a - 10 || b <= c - 10))
-		{
-			return true;
-		}
-		return (c <= a - 10 || c <= b - 10);
+		return false;
 	}
 
 	/*
@@ -358,8 +320,7 @@ public final class Logic1 {
 	 * withoutDoubles(3, 3, false) → 6
 	 */
 	public int withoutDoubles(int die1, int die2, boolean noDoubles) {
-		return (noDoubles ? (die1 == die2 ? die1 + die2 % 6 + 1 : die1 + die2)
-				: (die1 + die2));
+		return 0;
 	}
 
 	/*
@@ -378,13 +339,7 @@ public final class Logic1 {
 	 * maxMod5(3, 2) → 3
 	 */
 	public int maxMod5(int a, int b) {
-		if (a == b) {
-			return 0;
-		}
-		if (a % 5 == b % 5) {
-			return (a < b ? a : b);
-		}
-		return (a > b ? a : b);
+		return 0;
 	}
 
 	/*
@@ -402,15 +357,6 @@ public final class Logic1 {
 	 * redTicket(0, 0, 0) → 5
 	 */
 	public int redTicket(int a, int b, int c) {
-		if (a == 2 && b == 2 && c == 2) {
-			return 10;
-		}
-		if (a == b && b == c) {
-			return 5;
-		}
-		if (b != a && c != a) {
-			return 1;
-		}
 		return 0;
 	}
 
@@ -429,12 +375,6 @@ public final class Logic1 {
 	 * greenTicket(1, 1, 2) → 10
 	 */
 	public int greenTicket(int a, int b, int c) {
-		if (a == b && b == c) {
-			return 20;
-		}
-		if (a == b || b == c || c == a) {
-			return 10;
-		}
 		return 0;
 	}
 
@@ -454,12 +394,6 @@ public final class Logic1 {
 	 * blueTicket(6, 1, 4) → 10
 	 */
 	public int blueTicket(int a, int b, int c) {
-		if (a + b == 10 || a + c == 10 || b + c == 10) {
-			return 10;
-		}
-		if ((a == c + 10) || (b == c + 10)) {
-			return 5;
-		}
 		return 0;
 	}
 
@@ -478,7 +412,7 @@ public final class Logic1 {
 	 * shareDigit(12, 44) → false
 	 */
 	public boolean shareDigit(int a, int b) {
-		return ((a % 10 == b % 10) || (a / 10 == b / 10) || (a % 10 == b / 10) || (a / 10 == b % 10));
+		return false;
 	}
 
 	/*
@@ -497,7 +431,7 @@ public final class Logic1 {
 	 * sumLimit(8, 1) → 9
 	 */
 	public int sumLimit(int a, int b) {
-		return ((int) Math.log10(a + b) > (int) Math.log10(a) ? a : a + b);
+		return 0;
 	}
 
 }
