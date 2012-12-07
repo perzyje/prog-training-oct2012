@@ -16,14 +16,7 @@ final class Ap1 {
 	 * scoresIncreasing({1, 1, 4}) → true
 	 */
 	public boolean scoresIncreasing(int[] scores) {
-		int last = Integer.MIN_VALUE;
-		for (int i : scores) {
-			if (i < last) {
-				return false;
-			}
-			last = i;
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -39,11 +32,6 @@ final class Ap1 {
 	 * scores100({100, 1, 100, 100}) → true
 	 */
 	public boolean scores100(int[] scores) {
-		for (int i = 0; i < scores.length - 1; ++i) {
-			if (scores[i] == 100 && scores[i + 1] == 100) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -61,13 +49,6 @@ final class Ap1 {
 	 * scoresClump({1, 3, 5, 5}) → true
 	 */
 	public boolean scoresClump(int[] scores) {
-		for (int i = 0; i < scores.length - 2; ++i) {
-			if (Math.abs(scores[i] - scores[i + 1]) <= 2
-					&& Math.abs(scores[i] - scores[i + 2]) <= 2) {
-				return true;
-			}
-		}
-
 		return false;
 	}
 
@@ -92,16 +73,11 @@ final class Ap1 {
 	 * scoresAverage({3, 4, 5, 1, 2, 3}) → 4
 	 */
 	public int scoresAverage(int[] scores) {
-		return Math.max(average(scores, 0, scores.length / 2),
-				average(scores, scores.length / 2, scores.length));
+		return 0;
 	}
 
 	private int average(int[] scores, int start, int end) {
-		int result = 0;
-		for (int i = start; i < end; ++i) {
-			result += scores[i];
-		}
-		return result / (end - start);
+		return 0;
 	}
 
 	/*
@@ -117,13 +93,7 @@ final class Ap1 {
 	 * wordsCount({"a", "bb", "b", "ccc"}, 4) → 0
 	 */
 	public int wordsCount(String[] words, int len) {
-		int result = 0;
-		for (String word : words) {
-			if (word.length() == len) {
-				result++;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -139,11 +109,7 @@ final class Ap1 {
 	 * wordsFront({"a", "b", "c", "d"}, 3) → {"a", "b", "c"}
 	 */
 	public String[] wordsFront(String[] words, int n) {
-		String[] result = new String[n];
-		for (int i = 0; i < n; ++i) {
-			result[i] = words[i];
-		}
-		return result;
+		return null;
 	}
 
 	/*
@@ -160,13 +126,7 @@ final class Ap1 {
 	 * wordsWithoutList({"a", "bb", "b", "ccc"}, 4) → {"a", "bb", "b", "ccc"}
 	 */
 	public List<String> wordsWithoutList(String[] words, int len) {
-		List<String> result = new ArrayList<String>(words.length);
-		for (String word : words) {
-			if (word.length() != len) {
-				result.add(word);
-			}
-		}
-		return result;
+		return null;
 	}
 
 	/*
@@ -182,7 +142,7 @@ final class Ap1 {
 	 * hasOne(220) → false
 	 */
 	public boolean hasOne(int n) {
-		return Integer.toString(n).contains("1");
+		return false;
 	}
 
 	/*
@@ -201,15 +161,7 @@ final class Ap1 {
 	 * dividesSelf(120) → false
 	 */
 	public boolean dividesSelf(int n) {
-		for (char d : Integer.toString(n).toCharArray()) {
-			if (d == '0') {
-				return false;
-			}
-			if (n % Integer.valueOf(String.valueOf(d)) != 0) {
-				return false;
-			}
-		}
-		return true;
+		return false;
 	}
 
 	/*
@@ -226,18 +178,7 @@ final class Ap1 {
 	 * copyEvens({6, 1, 2, 4, 5, 8}, 3) → {6, 2, 4}
 	 */
 	public int[] copyEvens(int[] nums, int count) {
-		int[] result = new int[count];
-		int i = 0;
-		for (int num : nums) {
-			if (num % 2 != 0) {
-				continue;
-			}
-			result[i++] = num;
-			if (i >= count) {
-				break;
-			}
-		}
-		return result;
+		return null;
 	}
 
 	/*
@@ -256,22 +197,11 @@ final class Ap1 {
 	 * copyEndy({12, 1, 1, 13, 0, 20}, 2) → {1, 1}
 	 */
 	public int[] copyEndy(int[] nums, int count) {
-		int[] result = new int[count];
-		int i = 0;
-		for (int num : nums) {
-			if (!isEndy(num)) {
-				continue;
-			}
-			result[i++] = num;
-			if (i >= count) {
-				break;
-			}
-		}
-		return result;
+		return null;
 	}
 
 	private boolean isEndy(int num) {
-		return (num >= 0 && num <= 10) || (num >= 90 && num <= 100);
+		return false;
 	}
 
 	/*
@@ -290,16 +220,7 @@ final class Ap1 {
 	 * matchUp({"aa", "bb", "cc"}, {"", "", "ccc"}) → 1
 	 */
 	public int matchUp(String[] a, String[] b) {
-		int result = 0;
-		for (int i = 0; i < a.length; ++i) {
-			if (a[i].length() == 0 || b[i].length() == 0) {
-				continue;
-			}
-			if (a[i].charAt(0) == b[i].charAt(0)) {
-				result++;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -319,18 +240,7 @@ final class Ap1 {
 	 * scoreUp({"a", "a", "b", "b"}, {"a", "a", "b", "b"}) → 16
 	 */
 	public int scoreUp(String[] key, String[] answers) {
-		int result = 0;
-		for (int i = 0; i < key.length; ++i) {
-			if (answers[i].equals("?")) {
-				continue;
-			}
-			if (answers[i].equals(key[i])) {
-				result += 4;
-			} else {
-				result -= 1;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -348,14 +258,7 @@ final class Ap1 {
 	 * wordsWithout({"a", "b", "c", "a"}, "c") → {"a", "b", "a"}
 	 */
 	public String[] wordsWithout(String[] words, String target) {
-		List<String> result = new ArrayList<String>();
-		for (String word : words) {
-			if (word.equals(target)) {
-				continue;
-			}
-			result.add(word);
-		}
-		return result.toArray(new String[result.size()]);
+		return null;
 	}
 
 	/*
@@ -376,17 +279,11 @@ final class Ap1 {
 	 * scoresSpecial({12, 11, 4}, {2, 20, 31}) → 20
 	 */
 	public int scoresSpecial(int[] a, int[] b) {
-		return findLargestSpecialScore(a) + findLargestSpecialScore(b);
+		return 0;
 	}
 
 	private int findLargestSpecialScore(int[] arr) {
-		int result = 0;
-		for (int i : arr) {
-			if (i % 10 == 0) {
-				result = Math.max(result, i);
-			}
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -406,11 +303,7 @@ final class Ap1 {
 	 * sumHeights({5, 3, 6, 7, 2}, 0, 4) → 11
 	 */
 	public int sumHeights(int[] heights, int start, int end) {
-		int result = 0;
-		for (int i = start; i < end; ++i) {
-			result += Math.abs(heights[i + 1] - heights[i]);
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -431,16 +324,7 @@ final class Ap1 {
 	 * sumHeights2({5, 3, 6, 7, 2}, 0, 4) → 15
 	 */
 	public int sumHeights2(int[] heights, int start, int end) {
-		int result = 0;
-		for (int i = start; i < end; ++i) {
-			if (heights[i + 1] > heights[i]) {
-				result += 2 * (heights[i + 1] - heights[i]);
-			} else {
-				result += heights[i] - heights[i + 1];
-			}
-
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -460,15 +344,7 @@ final class Ap1 {
 	 * bigHeights({5, 3, 6, 7, 2}, 0, 4) → 1
 	 */
 	public int bigHeights(int[] heights, int start, int end) {
-		int result = 0;
-		for (int i = start; i < end; ++i) {
-			if (Math.abs(heights[i + 1] - heights[i]) >= 5) {
-				result += 1;
-			}
-
-		}
-		return result;
-
+		return 0;
 	}
 
 	/*
@@ -491,14 +367,7 @@ final class Ap1 {
 	 * userCompare("bb", 1, "bb", 1) → 0
 	 */
 	public int userCompare(String aName, int aId, String bName, int bId) {
-		int result = aName.compareTo(bName);
-		if (result == 0) {
-			result = aId - bId;
-		}
-		if (result != 0) {
-			result /= Math.abs(result);
-		}
-		return result;
+		return 0;
 	}
 
 	/*
@@ -519,22 +388,7 @@ final class Ap1 {
 	 * mergeTwo({"f", "g", "z"}, {"c", "f", "g"}, 3) → {"c", "f", "g"}
 	 */
 	public String[] mergeTwo(String[] a, String[] b, int n) {
-		String[] result = new String[n];
-		int ai = 0, bi = 0;
-		for (int i = 0; i < n; ++i) {
-			if (a[ai].compareTo(b[bi]) < 0) {
-				result[i] = a[ai];
-				ai++;
-			} else if (a[ai].compareTo(b[bi]) == 0) {
-				result[i] = a[ai];
-				ai++;
-				bi++;
-			} else {
-				result[i] = b[bi];
-				bi++;
-			}
-		}
-		return result;
+		return null;
 	}
 
 	/*
@@ -553,25 +407,7 @@ final class Ap1 {
 	 * commonTwo({"a", "b", "c"}, {"a", "b", "c"}) → 3
 	 */
 	public int commonTwo(String[] a, String[] b) {
-		int result = 0;
-		int ai = 0, bi = 0;
-		while (ai < a.length && bi < b.length) {
-			if (a[ai].compareTo(b[bi]) < 0) {
-				ai++;
-			} else if (a[ai].compareTo(b[bi]) == 0) {
-				result++;
-				String s = a[ai];
-				while (ai < a.length && a[ai].equals(s)) {
-					ai++;
-				}
-				while (bi < b.length && b[bi].equals(s)) {
-					bi++;
-				}
-			} else {
-				bi++;
-			}
-		}
-		return result;
+		return 0;
 	}
 
 }
