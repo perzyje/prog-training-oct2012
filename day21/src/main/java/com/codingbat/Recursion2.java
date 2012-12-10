@@ -21,20 +21,6 @@ final class Recursion2 {
 	 * groupSum(0, {2, 4, 8}, 9) → false
 	 */
 	public boolean groupSum(int start, int[] nums, int target) {
-		if (target == 0) {
-			return true;
-		}
-		if (start >= nums.length) {
-			return false;
-		}
-		for (int i = start; i < nums.length; ++i) {
-			if (nums[i] > target) {
-				continue;
-			}
-			if (groupSum(i + 1, nums, target - nums[i])) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -53,28 +39,6 @@ final class Recursion2 {
 	 * groupSum6(0, {5, 6, 2}, 7) → false
 	 */
 	public boolean groupSum6(int start, int[] nums, int target) {
-		if (target == 0) {
-			for (int i = start; i < nums.length; ++i) {
-				if (nums[i] == 6) {
-					return false;
-				}
-			}
-			return true;
-		}
-		if (target < 0) {
-			return false;
-		}
-		if (start >= nums.length) {
-			return false;
-		}
-		for (int i = start; i < nums.length; ++i) {
-			if (nums[i] == 6) {
-				return groupSum6(i + 1, nums, target - nums[i]);
-			}
-			if (groupSum6(i + 1, nums, target - nums[i])) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -94,21 +58,6 @@ final class Recursion2 {
 	 * groupNoAdj(0, {2, 5, 10, 4}, 7) → false
 	 */
 	public boolean groupNoAdj(int start, int[] nums, int target) {
-		if (target == 0) {
-			return true;
-		}
-		if (start >= nums.length) {
-			return false;
-		}
-		for (int i = start; i < nums.length; ++i) {
-			if (nums[i] > target) {
-				continue;
-			}
-			if (groupNoAdj(i + 2, nums, target - nums[i])
-					|| groupNoAdj(i + 1, nums, target)) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -128,34 +77,6 @@ final class Recursion2 {
 	 * groupSum5(0, {2, 5, 10, 4}, 12) → false
 	 */
 	public boolean groupSum5(int start, int[] nums, int target) {
-		if (target == 0) {
-			for (int i = start; i < nums.length; ++i) {
-				if (nums[i] % 5 == 0) {
-					if (i == nums.length - 1 || nums[i] != 1) {
-						return false;
-					}
-				}
-			}
-			return true;
-		}
-		if (target < 0) {
-			return false;
-		}
-		if (start >= nums.length) {
-			return false;
-		}
-		for (int i = start; i < nums.length; ++i) {
-			if (nums[i] % 5 == 0) {
-				if (i < nums.length - 1 && nums[i + 1] == 1) {
-					return groupSum5(i + 2, nums, target - nums[i]);
-				} else {
-					return groupSum5(i + 1, nums, target - nums[i]);
-				}
-			}
-			if (groupSum5(i + 1, nums, target - nums[i])) {
-				return true;
-			}
-		}
 		return false;
 	}
 
@@ -177,22 +98,7 @@ final class Recursion2 {
 	 * groupSumClump(0, {2, 4, 4, 8}, 14) → false
 	 */
 	public boolean groupSumClump(int start, int[] nums, int target) {
-		if (target == 0) {
-			return true;
-		}
-		if (target < 0 || start >= nums.length) {
-			return false;
-		}
-
-		int i = start;
-		int startValue = nums[i], groupSum = 0;
-		while (i < nums.length && nums[i] == startValue) {
-			groupSum += startValue;
-			++i;
-		}
-
-		return groupSumClump(i, nums, target - groupSum)
-				|| groupSumClump(i, nums, target);
+		return false;
 	}
 
 	/*
@@ -210,17 +116,8 @@ final class Recursion2 {
 	 * 
 	 * splitArray({5, 2, 3}) → true
 	 */
-	private boolean findSplit(int start, int[] nums, int sum1, int sum2) {
-		if (start >= nums.length) {
-			return sum1 == sum2;
-		}
-
-		return findSplit(start + 1, nums, sum1 + nums[start], sum2)
-				|| findSplit(start + 1, nums, sum1, sum2 + nums[start]);
-	}
-
 	public boolean splitArray(int[] nums) {
-		return findSplit(0, nums, 0, 0);
+		return false;
 	}
 
 	/*
@@ -239,18 +136,8 @@ final class Recursion2 {
 	 * 
 	 * splitOdd10({5, 5, 6, 1}) → true
 	 */
-	private boolean findSplitOdd10(int start, int[] nums, int sum1, int sum2) {
-		if (start >= nums.length) {
-			return (sum1 % 10 == 0 && sum2 % 2 != 0)
-					|| (sum2 % 10 == 0 && sum1 % 2 != 0);
-		}
-
-		return findSplitOdd10(start + 1, nums, sum1 + nums[start], sum2)
-				|| findSplitOdd10(start + 1, nums, sum1, sum2 + nums[start]);
-	}
-
 	public boolean splitOdd10(int[] nums) {
-		return findSplitOdd10(0, nums, 0, 0);
+		return false;
 	}
 
 	/*
@@ -265,22 +152,7 @@ final class Recursion2 {
 	 * split53({1,1}) → true split53({1, 1, 1}) → false split53({2, 4, 2}) →
 	 * true
 	 */
-	private boolean findSplit53(int start, int[] nums, int sum1, int sum2) {
-		if (start >= nums.length) {
-			return sum1 == sum2;
-		}
-
-		if (nums[start] % 5 == 0) {
-			return findSplit53(start + 1, nums, sum1 + nums[start], sum2);
-		} else if (nums[start] % 3 == 0) {
-			return findSplit53(start + 1, nums, sum1, sum2 + nums[start]);
-		} else {
-			return findSplit53(start + 1, nums, sum1 + nums[start], sum2)
-					|| findSplit53(start + 1, nums, sum1, sum2 + nums[start]);
-		}
-	}
-
 	public boolean split53(int[] nums) {
-		return findSplit53(0, nums, 0, 0);
+		return false;
 	}
 }
