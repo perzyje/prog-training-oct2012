@@ -31,6 +31,7 @@
     <module>day31</module>
     <module>day34</module>
     <module>day37</module>
+    <module>day40</module>
   </modules>
 
   <dependencies>
