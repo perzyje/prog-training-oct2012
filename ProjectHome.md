@@ -1,0 +1,1 @@
+A repository containing training exercises for learning Java.
